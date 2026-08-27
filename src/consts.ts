@@ -40,7 +40,7 @@ export const NAV: { label: string; href: string }[] = [
 
 /** External profiles. Remove any you don't want public. */
 export const ELSEWHERE: { label: string; href: string; handle: string }[] = [
-  { label: 'GitHub', href: 'https://github.com/', handle: '@ernestau' },
+  { label: 'GitHub', href: 'https://github.com/ErnestAu', handle: '@ErnestAu' },
   { label: 'YouTube', href: 'https://youtube.com/', handle: '@ernestau' },
   { label: 'Email', href: 'mailto:ernestau7@gmail.com', handle: 'ernestau7@gmail.com' },
 ];
