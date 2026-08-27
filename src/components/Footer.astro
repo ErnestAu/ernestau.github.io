@@ -1,0 +1,30 @@
+---
+import { SITE } from '../consts';
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="page bar">
+    <span>© {year} {SITE.name}</span>
+    <span class="built">Built with Astro. No trackers.</span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-block-start: 1px solid var(--rule);
+    margin-block-start: 5rem;
+  }
+
+  .bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1.5rem;
+    padding-block: 2rem;
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+</style>

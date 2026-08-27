@@ -1,0 +1,101 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE, TAGLINE, INTRO, CURRENTLY, ELSEWHERE } from '../consts';
+---
+
+<Base>
+  <div class="page">
+    <section class="hero">
+      <h1>{SITE.name}</h1>
+      <p class="tagline">{TAGLINE}</p>
+      <p class="intro">{INTRO}</p>
+    </section>
+
+    <section class="block">
+      <h2 class="label">currently</h2>
+      <ul class="currently">
+        {CURRENTLY.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2 class="label">elsewhere</h2>
+      <ul class="elsewhere">
+        {ELSEWHERE.map(({ label, href, handle }) => (
+          <li>
+            <a href={href} rel="me noopener">{label}</a>
+            <span class="handle">{handle}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(3.5rem, 10vw, 6rem) 0;
+    max-width: var(--measure);
+  }
+
+  .tagline {
+    font-size: clamp(1.125rem, 2.5vw, 1.3125rem);
+    line-height: 1.45;
+    margin-block-start: 1.25rem;
+    text-wrap: balance;
+  }
+
+  .intro {
+    color: var(--text-muted);
+    margin-block-start: 1.5rem;
+  }
+
+  .block { margin-block-start: 4rem; }
+
+  .block > .label { margin-block-end: 1.5rem; }
+
+  ul { list-style: none; padding: 0; margin: 0; }
+
+  .currently {
+    max-width: var(--measure);
+    display: grid;
+    gap: 0.875rem;
+  }
+
+  .currently li {
+    position: relative;
+    padding-inline-start: 1.5rem;
+    color: var(--text-muted);
+  }
+
+  .currently li::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 0.7em;
+    inset-inline-start: 0;
+    width: 0.5rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .elsewhere {
+    display: grid;
+    gap: 0.25rem;
+    max-width: var(--measure);
+  }
+
+  .elsewhere li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding-block: 0.5rem;
+    border-block-end: 1px solid var(--rule);
+  }
+
+  .handle {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+</style>

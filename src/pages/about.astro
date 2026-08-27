@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="About"
+  description="A little more about Ernest Au — background, what I work on, and what I'm figuring out."
+>
+  <div class="page">
+    <section class="head">
+      <p class="label">about</p>
+      <h1>A bit more context</h1>
+    </section>
+
+    <div class="prose">
+      <p>
+        Placeholder copy — replace this with your own. A good about page usually
+        answers three questions in order: what you do now, how you got here, and
+        what you're currently curious about.
+      </p>
+      <p>
+        The second paragraph is a good place for specifics. Which languages and
+        systems you actually reach for, the kind of problems you like, and any
+        work you're proud of. Concrete beats impressive: naming the thing you
+        built and what broke tells a reader far more than a list of adjectives.
+      </p>
+      <p>
+        Close with what you're figuring out right now, and how to reach you.
+        People who land here and want to talk should not have to hunt for it.
+      </p>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: clamp(3rem, 8vw, 4.5rem) 0;
+    max-width: var(--measure);
+  }
+
+  .head .label { margin-block-end: 1.25rem; }
+
+  .prose {
+    margin-block-start: 2rem;
+    color: var(--text-muted);
+  }
+</style>
