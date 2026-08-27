@@ -24,7 +24,7 @@ import { SITE, TAGLINE, INTRO, CURRENTLY, ELSEWHERE } from '../consts';
         {ELSEWHERE.map(({ label, href, handle }) => (
           <li>
             <a href={href} rel="me noopener">{label}</a>
-            <span class="handle">{handle}</span>
+            {handle && <span class="handle">{handle}</span>}
           </li>
         ))}
       </ul>
