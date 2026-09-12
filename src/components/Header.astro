@@ -2,7 +2,11 @@
 import { SITE, NAV } from '../consts';
 import ThemeToggle from './ThemeToggle.astro';
 
-const path = Astro.url.pathname;
+// Normalise so '/til' and '/til/' match, and so an entry page like
+// '/til/spark' still marks the 'til' nav link as current.
+const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isCurrent = (href: string) =>
+  href === '/' ? path === '/' : path === href || path.startsWith(`${href}/`);
 ---
 
 <header>
@@ -13,7 +17,7 @@ const path = Astro.url.pathname;
       <ul>
         {NAV.map(({ label, href }) => (
           <li>
-            <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>
+            <a href={href} aria-current={isCurrent(href) ? 'page' : undefined}>{label}</a>
           </li>
         ))}
       </ul>
