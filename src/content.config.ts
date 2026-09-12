@@ -1,0 +1,29 @@
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+/**
+ * Each til entry is one markdown file in src/content/til/.
+ * The filename becomes the URL: spark-partitions.md -> /til/spark-partitions
+ *
+ * The schema below is enforced at build time. If a field is missing or the
+ * wrong type, the build fails and tells you which file and which field —
+ * so a broken entry can never reach the live site.
+ */
+const til = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/til' }),
+  schema: z.object({
+    /** Shown as the page heading, in the list, and in the browser tab. */
+    title: z.string(),
+    /** One line. Shown under the title in the list, and in link previews. */
+    description: z.string(),
+    /** Written as YYYY-MM-DD. Sorts the list, newest first. */
+    date: z.coerce.date(),
+    /** Optional. Nothing renders these yet — they're here so that when you
+     *  want categories later, the entries already carry the data. */
+    tags: z.array(z.string()).default([]),
+    /** draft: true is visible while developing, but never published. */
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { til };

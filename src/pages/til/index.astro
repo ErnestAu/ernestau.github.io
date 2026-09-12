@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const entries = (await getCollection('til', ({ data }) => import.meta.env.DEV || !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).toLowerCase();
+---
+
+<Base title="til" description="things i learned, written down so they stick.">
+  <div class="page">
+    <section class="head">
+      <p class="label">til</p>
+      <h1>today i learned</h1>
+    </section>
+
+    {entries.length === 0 ? (
+      <p class="empty">nothing here yet.</p>
+    ) : (
+      <ul class="list">
+        {entries.map((entry) => (
+          <li>
+            <a class="title" href={`/til/${entry.id}`}>{entry.data.title}</a>
+            <p class="meta">
+              <time datetime={entry.data.date.toISOString()}>{fmt(entry.data.date)}</time>
+              {entry.data.draft && <span class="draft">draft</span>}
+            </p>
+            <p class="blurb">{entry.data.description}</p>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: clamp(3rem, 8vw, 4.5rem) 0;
+    max-width: var(--measure);
+  }
+
+  .head .label { margin-block-end: 1.25rem; }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin-block-start: 3rem;
+    max-width: var(--measure);
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  .list li {
+    display: grid;
+    gap: 0.5rem;
+    padding-block-end: 2.5rem;
+    border-block-end: 1px solid var(--rule);
+  }
+
+  .list li:last-child {
+    padding-block-end: 0;
+    border-block-end: none;
+  }
+
+  .title {
+    font-family: var(--font-display), var(--font-fallback);
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .title:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+
+  .meta {
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .draft {
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: 3px;
+    padding: 0.05rem 0.35rem;
+  }
+
+  .blurb { color: var(--text-muted); }
+
+  .empty {
+    margin-block-start: 3rem;
+    color: var(--text-muted);
+  }
+</style>

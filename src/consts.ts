@@ -51,6 +51,7 @@ export const CURRENTLY: string[] = [
 
 /** Links in the header. Add entries here as sections ship. */
 export const NAV: { label: string; href: string }[] = [
+  { label: 'til', href: '/til' },
   // { label: 'Videos',   href: '/videos'   },
   // { label: 'Projects', href: '/projects' },
 ];
