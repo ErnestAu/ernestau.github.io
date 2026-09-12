@@ -1,31 +1,34 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SITE, TAGLINE, INTRO, CURRENTLY, ELSEWHERE } from '../consts';
+import { GREETING, INTRO, ABOUT, LABELS, CURRENTLY, ELSEWHERE } from '../consts';
 ---
 
 <Base>
   <div class="page">
     <section class="hero">
-      <h1>{SITE.name}</h1>
-      <p class="tagline">{TAGLINE}</p>
+      <h1>{GREETING}</h1>
       <p class="intro">{INTRO}</p>
     </section>
 
     <section class="block">
-      <h2 class="label">currently</h2>
+      <h2 class="label">{LABELS.about}</h2>
+      <div class="prose about">
+        {ABOUT.map((para) => <p set:html={para} />)}
+      </div>
+    </section>
+
+    <section class="block">
+      <h2 class="label">{LABELS.working}</h2>
       <ul class="currently">
-        {CURRENTLY.map((item) => <li>{item}</li>)}
+        {CURRENTLY.map((item) => <li set:html={item} />)}
       </ul>
     </section>
 
     <section class="block">
-      <h2 class="label">elsewhere</h2>
+      <h2 class="label">{LABELS.elsewhere}</h2>
       <ul class="elsewhere">
-        {ELSEWHERE.map(({ label, href, handle }) => (
-          <li>
-            <a href={href} rel="me noopener">{label}</a>
-            {handle && <span class="handle">{handle}</span>}
-          </li>
+        {ELSEWHERE.map(({ label, href }) => (
+          <li><a href={href} rel="me noopener">{label}</a></li>
         ))}
       </ul>
     </section>
@@ -38,13 +41,6 @@ import { SITE, TAGLINE, INTRO, CURRENTLY, ELSEWHERE } from '../consts';
     max-width: var(--measure);
   }
 
-  .tagline {
-    font-size: clamp(1.125rem, 2.5vw, 1.3125rem);
-    line-height: 1.45;
-    margin-block-start: 1.25rem;
-    text-wrap: balance;
-  }
-
   .intro {
     color: var(--text-muted);
     margin-block-start: 1.5rem;
@@ -53,6 +49,8 @@ import { SITE, TAGLINE, INTRO, CURRENTLY, ELSEWHERE } from '../consts';
   .block { margin-block-start: 4rem; }
 
   .block > .label { margin-block-end: 1.5rem; }
+
+  .about { color: var(--text-muted); }
 
   ul { list-style: none; padding: 0; margin: 0; }
 
@@ -79,23 +77,8 @@ import { SITE, TAGLINE, INTRO, CURRENTLY, ELSEWHERE } from '../consts';
   }
 
   .elsewhere {
-    display: grid;
-    gap: 0.25rem;
-    max-width: var(--measure);
-  }
-
-  .elsewhere li {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.75rem;
-    padding-block: 0.5rem;
-    border-block-end: 1px solid var(--rule);
-  }
-
-  .handle {
-    font-family: var(--font-mono), ui-monospace, monospace;
-    font-size: 0.75rem;
-    color: var(--text-muted);
+    gap: 0.75rem 1.75rem;
   }
 </style>
