@@ -173,3 +173,95 @@ main { flex: 1 0 auto; }
 }
 
 .skip-link:focus { left: 0; }
+
+/* ============================================================
+   Markdown body — til entries
+   Everything below styles HTML generated from your markdown,
+   so it has to be global: scoped styles can't reach it.
+   ============================================================ */
+
+.prose h2 { font-size: 1.375rem; margin-block-start: 2.5em; }
+.prose h3 { font-size: 1.125rem; margin-block-start: 2em; }
+
+/* Tighten the gap between a heading and the text under it. */
+.prose h2 + *, .prose h3 + * { margin-block-start: 0.75em; }
+
+.prose ul, .prose ol { padding-inline-start: 1.5rem; }
+.prose li + li { margin-block-start: 0.4em; }
+.prose li::marker { color: var(--text-muted); }
+
+.prose blockquote {
+  border-inline-start: 2px solid var(--accent);
+  padding-inline-start: 1.25rem;
+  color: var(--text-muted);
+}
+
+/* Inline `code`, but not code inside a highlighted block. */
+.prose :not(pre) > code {
+  background: var(--bg-subtle);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 0.1em 0.35em;
+}
+
+.prose pre {
+  padding: 1rem 1.125rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.prose hr {
+  border: none;
+  border-block-start: 1px solid var(--rule);
+  margin-block: 2.5em;
+}
+
+.prose img { border-radius: 6px; }
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.prose th, .prose td {
+  text-align: start;
+  padding: 0.5rem 0.75rem;
+  border-block-end: 1px solid var(--rule);
+}
+
+.prose th { font-family: var(--font-mono), ui-monospace, monospace; font-size: 0.75rem; }
+
+/* Tables and code can outgrow the reading measure; let them scroll
+   rather than pushing the whole page sideways. */
+.prose table, .prose pre { max-width: 100%; }
+
+/* ------------------------------------------------------------
+   Code block theming.
+   Shiki emits both palettes inline: the light one as real colours,
+   the dark one as --shiki-dark custom properties. These rules swap
+   to the dark set, mirroring how the palette itself is switched.
+   ------------------------------------------------------------ */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .astro-code,
+  :root:not([data-theme='light']) .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}
+
+:root[data-theme='dark'] .astro-code,
+:root[data-theme='dark'] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}

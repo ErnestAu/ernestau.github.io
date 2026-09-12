@@ -6,6 +6,15 @@ export default defineConfig({
   site: 'https://ernestau.com',
   integrations: [sitemap()],
 
+  // Code blocks are highlighted at build time — no JS shipped to the browser.
+  // Two themes are emitted at once; global.css picks which one is visible
+  // based on the reader's light/dark preference.
+  markdown: {
+    shikiConfig: {
+      themes: { light: 'github-light', dark: 'github-dark-dimmed' },
+    },
+  },
+
   // Fonts are downloaded and self-hosted at build time — no runtime request
   // to Google, and Astro emits preloads + fallback metrics to avoid layout shift.
   fonts: [
