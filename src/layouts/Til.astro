@@ -247,7 +247,12 @@ const dateLabel = date
 
     .toc a:hover { color: var(--text); }
 
+    /* must reset the tick's fixed width too: `.toc a.active` from the
+       collapsed rail is more specific than `.toc a` in here, so without
+       this the active label keeps an 18px box and wraps one letter a line. */
     .toc a.active {
+      width: auto;
+      height: auto;
       color: var(--accent);
       background: none;
       border-inline-start-color: var(--accent);
