@@ -59,6 +59,11 @@ get your hiragana and katakana down (took me a week but you could do it in 3 day
 
 then pick a spaced repetition system. i like bunpro because i feel it's comprehensive and they gamify it well. they also have jlpt practice tests which is cool. i know some people don't like daily streaks, but i kinda like the pressure!
 
+alternatives:
+
+- kanji and vocab - [WaniKani](https://www.wanikani.com/)
+- free and customizable - [Anki](https://apps.ankiweb.net/)
+
 ## speaking
 
 my stack:
