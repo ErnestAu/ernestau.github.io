@@ -6,8 +6,8 @@ category: 'japanese'
 draft: false
 ---
 
-> the student is confused. "Why does it keep taking longer the harder I say I'll work?"
-> the master answers, "Because with one eye fixed on the destination, you only have one eye left to find the way."
+> The student is confused. "Why does it keep taking longer the harder I say I'll work?"
+> The master answers, "Because with one eye fixed on the destination, you only have one eye left to find the way."
 
 ## opening
 

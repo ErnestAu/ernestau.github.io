@@ -8,6 +8,12 @@ export default defineConfig({
   site: 'https://ernestau.com',
   integrations: [sitemap()],
 
+  // The old slug was live before the rename. Static builds emit a small
+  // redirect page, so any link already shared still lands in the right place.
+  redirects: {
+    '/til/japanese-log': '/til/my-japanese-learning-stack',
+  },
+
   // Code blocks are highlighted at build time — no JS shipped to the browser.
   // Two themes are emitted at once; global.css picks which one is visible
   // based on the reader's light/dark preference.
