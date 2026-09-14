@@ -1,6 +1,8 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import { satteri } from '@astrojs/markdown-satteri';
+import { softBreaks } from './src/plugins/soft-breaks.mjs';
 
 export default defineConfig({
   site: 'https://ernestau.com',
@@ -10,6 +12,10 @@ export default defineConfig({
   // Two themes are emitted at once; global.css picks which one is visible
   // based on the reader's light/dark preference.
   markdown: {
+    // Sätteri is Astro's native markdown pipeline and stays the processor;
+    // this only adds one plugin to it. See src/plugins/soft-breaks.mjs.
+    processor: satteri({ mdastPlugins: [softBreaks] }),
+
     shikiConfig: {
       themes: { light: 'github-light', dark: 'github-dark-dimmed' },
     },
