@@ -18,9 +18,11 @@ const til = defineCollection({
     description: z.string(),
     /** Written as YYYY-MM-DD. Sorts the list, newest first. */
     date: z.coerce.date(),
-    /** Optional. Nothing renders these yet — they're here so that when you
-     *  want categories later, the entries already carry the data. */
-    tags: z.array(z.string()).default([]),
+    /** Which bucket this belongs in: japanese, data-engineering, workouts,
+     *  life, philosophy, whatever you invent next. Nothing renders it yet —
+     *  it's here so that when you build category pages, the entries already
+     *  carry the data and nothing needs backfilling. */
+    category: z.string().optional(),
     /** draft: true is visible while developing, but never published. */
     draft: z.boolean().default(false),
   }),
