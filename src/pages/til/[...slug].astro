@@ -9,9 +9,11 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const { Content } = await render(entry);
+// `headings` is collected from the markdown itself — it's what the
+// table of contents is built from, so it can never drift out of sync.
+const { Content, headings } = await render(entry);
 ---
 
-<Til entry={entry}>
+<Til entry={entry} headings={headings}>
   <Content />
 </Til>
