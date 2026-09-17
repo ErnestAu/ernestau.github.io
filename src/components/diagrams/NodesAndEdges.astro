@@ -1,0 +1,43 @@
+---
+// The generic shape: things joined to other things. Deliberately not
+// spark-specific — this is the concept the word "node" comes from.
+const P = {
+  a: [70, 55], b: [200, 35], c: [340, 70], d: [120, 145], e: [265, 150],
+} as const;
+
+const edges: [keyof typeof P, keyof typeof P][] = [
+  ['a', 'b'], ['b', 'c'], ['a', 'd'], ['d', 'e'], ['e', 'c'], ['b', 'e'],
+];
+// The svg is labelled with aria-label rather than a <title> child:
+// a <title> renders as a hover tooltip, which we don't want.
+---
+
+<figure class="diagram">
+  <svg viewBox="0 0 420 200" role="img"
+       aria-label="Five circles joined by lines. One circle is labelled node, one line is labelled edge.">
+    {edges.map(([f, t]) => (
+      <line class="edge" x1={P[f][0]} y1={P[f][1]} x2={P[t][0]} y2={P[t][1]} />
+    ))}
+
+    {Object.values(P).map(([x, y]) => <circle class="node" cx={x} cy={y} r="17" />)}
+
+    <line class="leader" x1="120" y1="164" x2="120" y2="176" />
+    <text class="lbl" x="120" y="193" text-anchor="middle">node</text>
+
+    <line class="leader" x1="193" y1="148" x2="193" y2="176" />
+    <text class="lbl" x="193" y="193" text-anchor="middle">edge</text>
+  </svg>
+</figure>
+
+<style>
+  .diagram { margin: 0; }
+  svg { width: 100%; height: auto; display: block; }
+  .edge { stroke: var(--text-muted); stroke-width: 1.5; }
+  .node { fill: var(--bg-subtle); stroke: var(--accent); stroke-width: 1.5; }
+  .leader { stroke: var(--rule); stroke-width: 1; }
+  .lbl {
+    fill: var(--text-muted);
+    font-family: var(--font-mono), ui-monospace, monospace;
+    font-size: 12px;
+  }
+</style>
