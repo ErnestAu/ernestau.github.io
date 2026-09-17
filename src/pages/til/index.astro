@@ -28,7 +28,7 @@ const fmt = (d: Date) =>
               <time datetime={entry.data.date.toISOString()}>{fmt(entry.data.date)}</time>
               {entry.data.draft && <span class="draft">draft</span>}
             </p>
-            <p class="blurb">{entry.data.description}</p>
+            {entry.data.description && <p class="blurb">{entry.data.description}</p>}
           </li>
         ))}
       </ul>

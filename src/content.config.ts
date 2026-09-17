@@ -14,8 +14,10 @@ const til = defineCollection({
   schema: z.object({
     /** Shown as the page heading, in the list, and in the browser tab. */
     title: z.string(),
-    /** One line. Shown under the title in the list, and in link previews. */
-    description: z.string(),
+    /** Optional. One line, shown under the title in the list and in link
+     *  previews. Leave it out and the list shows just the title, while the
+     *  page falls back to the site-wide description for its meta tags. */
+    description: z.string().optional(),
     /** Written as YYYY-MM-DD. Sorts the list, newest first. */
     date: z.coerce.date(),
     /** Which bucket this belongs in: japanese, data-engineering, workouts,
