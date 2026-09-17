@@ -1,52 +1,88 @@
 ---
-// Matches the article: the driver breaks work up and hands it out, the
-// workers run in parallel, and the results are written to disk — NOT
-// collected back at the driver.
-const workers = [
-  { x: 14, cx: 70, taskFrom: 200, taskTo: 66, resTo: 196 },
-  { x: 184, cx: 240, taskFrom: 240, taskTo: 240, resTo: 240 },
-  { x: 354, cx: 410, taskFrom: 280, taskTo: 414, resTo: 284 },
-];
-// The svg is labelled with aria-label rather than a <title> child:
-// a <title> renders as a hover tooltip, which we don't want.
+interface Props {
+  /**
+   * Draw the version that was assumed before fact checking: results
+   * travelling back up to the driver. The default draws what actually
+   * happens — results written to disk.
+   */
+  wrong?: boolean;
+  /** Caption under the diagram. */
+  note?: string;
+}
+
+const { wrong = false, note } = Astro.props;
+
+// Shared: the driver sits at the top, three workers in a row below.
+const workers = wrong
+  ? [
+      { x: 14, cx: 70, taskFrom: 200, taskTo: 64, resFrom: 76, resTo: 212 },
+      { x: 184, cx: 240, taskFrom: 234, taskTo: 234, resFrom: 246, resTo: 246 },
+      { x: 354, cx: 410, taskFrom: 268, taskTo: 404, resFrom: 416, resTo: 280 },
+    ]
+  : [
+      { x: 14, cx: 70, taskFrom: 200, taskTo: 66, resTo: 196 },
+      { x: 184, cx: 240, taskFrom: 240, taskTo: 240, resTo: 240 },
+      { x: 354, cx: 410, taskFrom: 280, taskTo: 414, resTo: 284 },
+    ];
+
+const workerY = wrong ? 180 : 150;
+const box = wrong ? '0 0 480 240' : '0 0 480 325';
+
+const label = wrong
+  ? 'A driver node at the top hands tasks down to three worker nodes, which send their results back up to the driver.'
+  : 'A driver node at the top hands tasks down to three worker nodes, which run in parallel and write their results to disk.';
 ---
 
 <figure class="diagram">
-  <svg viewBox="0 0 480 325" role="img"
-       aria-label="A driver node at the top hands tasks down to three worker nodes, which run in parallel and write their results to disk.">
+  <svg viewBox={box} role="img" aria-label={label}>
     <defs>
-      <marker id="dw-a" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <marker id={`dw-a-${wrong}`} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
         <path class="head-task" d="M0,0 L8,4 L0,8 z" />
       </marker>
-      <marker id="dw-b" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
+      <marker id={`dw-b-${wrong}`} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto">
         <path class="head-res" d="M0,0 L8,4 L0,8 z" />
       </marker>
     </defs>
 
     {workers.map((w) => (
       <>
-        <line class="task" x1={w.taskFrom} y1="60" x2={w.taskTo} y2="148" />
-        <line class="result" x1={w.cx} y1="196" x2={w.resTo} y2="250" />
+        <line class="task" marker-end={`url(#dw-a-${wrong})`}
+              x1={w.taskFrom} y1="60" x2={w.taskTo} y2={workerY - 2} />
+        {wrong ? (
+          <line class="result" marker-end={`url(#dw-b-${wrong})`}
+                x1={w.resFrom} y1={workerY - 2} x2={w.resTo} y2="63" />
+        ) : (
+          <line class="result" marker-end={`url(#dw-b-${wrong})`}
+                x1={w.cx} y1={workerY + 46} x2={w.resTo} y2="250" />
+        )}
       </>
     ))}
 
-    <text class="lbl" x="232" y="108" text-anchor="end">task</text>
-    <text class="lbl" x="250" y="230" text-anchor="start">results</text>
+    <text class="lbl" x="226" y={wrong ? 124 : 108} text-anchor="end">task</text>
+    <text class="lbl" x={wrong ? 254 : 250} y={wrong ? 124 : 230} text-anchor="start">
+      {wrong ? 'result' : 'results'}
+    </text>
 
     <rect class="box driver" x="175" y="14" width="130" height="46" rx="8" />
     <text class="name" x="240" y="43" text-anchor="middle">driver</text>
 
     {workers.map((w) => (
       <>
-        <rect class="box" x={w.x} y="150" width="112" height="46" rx="8" />
-        <text class="name" x={w.cx} y="179" text-anchor="middle">worker</text>
+        <rect class="box" x={w.x} y={workerY} width="112" height="46" rx="8" />
+        <text class="name" x={w.cx} y={workerY + 29} text-anchor="middle">worker</text>
       </>
     ))}
 
-    <path class="box" d="M170,262 v38 a70,10 0 0 0 140,0 v-38 z" />
-    <ellipse class="box" cx="240" cy="262" rx="70" ry="10" />
-    <text class="name" x="240" y="292" text-anchor="middle">disk</text>
+    {!wrong && (
+      <>
+        <path class="box" d="M170,262 v38 a70,10 0 0 0 140,0 v-38 z" />
+        <ellipse class="box" cx="240" cy="262" rx="70" ry="10" />
+        <text class="name" x="240" y="292" text-anchor="middle">disk</text>
+      </>
+    )}
   </svg>
+
+  {note && <figcaption class:list={['note', { wrong }]}>{note}</figcaption>}
 </figure>
 
 <style>
@@ -62,15 +98,10 @@ const workers = [
     font-size: 13px;
   }
 
-  .task { stroke: var(--accent); stroke-width: 1.5; marker-end: url(#dw-a); }
+  .task { stroke: var(--accent); stroke-width: 1.5; }
   .head-task { fill: var(--accent); }
 
-  .result {
-    stroke: var(--text-muted);
-    stroke-width: 1.5;
-    stroke-dasharray: 4 3;
-    marker-end: url(#dw-b);
-  }
+  .result { stroke: var(--text-muted); stroke-width: 1.5; stroke-dasharray: 4 3; }
   .head-res { fill: var(--text-muted); }
 
   .lbl {
@@ -78,4 +109,17 @@ const workers = [
     font-family: var(--font-mono), ui-monospace, monospace;
     font-size: 11px;
   }
+
+  /* Body font rather than mono: Source Serif 4 has a real italic loaded,
+     whereas the mono face would be faked by the browser. */
+  .note {
+    margin-block-start: 0.75rem;
+    font-family: var(--font-body), Georgia, serif;
+    font-style: italic;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .note.wrong { color: var(--accent); }
 </style>
