@@ -1,0 +1,71 @@
+---
+title: 'the 3 joins spark performs'
+date: 2026-09-17
+draft: true
+---
+
+according to Amazon:
+
+Apache Spark is an open-source, distributed processing system used for big data workloads. It utilizes in-memory caching, and optimized query execution for fast analytic queries against data of any size. It provides development APIs in Java, Scala, Python and R, and supports code reuse across multiple workloads—batch processing, interactive queries, real-time analytics, machine learning, and graph processing
+
+if you understood that, you can stop reading. 
+
+if not, follow along!
+
+
+
+
+
+
+
+
+alrightttttttt
+
+so there are 3 main types of joins that Spark performs. why are there 3 types of joins? they're just different optimized ways of joining 2 tables depending on the shape of the table. 
+
+there's the shuffle sort merge join, the shuffle hash join, and broadcast join.
+
+ok, let's say we're working with a fact sales table that can be joined to a dim customer table.
+
+if they're really big tables, they can take a really long time to join. 
+
+that's why Spark helps. Spark is basically like a distributed computing system. meaning that it'll recruit a bunch of machines (or nodes) that will help process your join
+
+but then the issue is how will we like coordinate all the machines to join your table?
+
+Spark breaks up your fact sales and dimension customer table into many small tables and sends them to the machines. this is called partitioning. you break up your tables into partitions, and send those partitions to the individual machines.
+
+it's also important to make sure that within the individual partitions, it contains the rows from both tables containing the necessary joining keys. 
+
+like if partition A has the join key 1 in the sales table, but the row where join key is 1 in the customer table is in partition B, how will they join?
+
+they can't. they're in separate nodes. 
+
+so, you use some kinda hashing function to divide it into the relevant partitions
+
+this is just for example
+
+{/* diagram: hashing keys into matching partitions */}
+
+if we have 4 partitions.
+you can perform %4 on each joining key
+so in the sales table
+1%4 = 1 (so it goes to partition 1)
+2%4 = 2 (so it goes to partition 2)
+...
+
+in the customer table, it's the same
+1%4 = 1 (so it goes to partition 1)
+2%4 = 2 (so it goes to partition 2)
+...
+
+so now in the partitions
+they contain the same keys. all the joining keys they need are all within the same partition.
+
+this whole process is shuffling. 
+
+like, you take the rows from each table, shuffle them into the appropriate partitions, so every node can simultaneously work on the joins
+
+ok, now we bring in Shuffle Sort Merge Join and Shuffle Hash Join
+
+these 2 things are the techniques which the individual nodes use to perform the join.
