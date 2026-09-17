@@ -1,6 +1,5 @@
 ---
 title: 'my japanese learning stack'
-description: 'make it fun, then go speak it. what two months of learning japanese taught me, and the stack i use to do it.'
 date: 2026-09-14
 category: 'japanese'
 draft: false
@@ -11,15 +10,15 @@ draft: false
 
 ## opening
 
-hey! so i've been learning japanese for awhile now. 
+hey! so i've been learning japanese for a while now. 
 
 wait lemme check how long. still checking. just one sec. July 8th, it's Sep 14th. wow! only a little over 2 months.
 
-wait that's actually crazy. so it hasn't really been awhile. it's really only been a short time.
+wait that's actually crazy. so it hasn't really been a while. it's really only been a short time.
 
 i feel like i've made a lot of progress in 2 months tho. i'm genuinely amazed.
 
-anyway, this whole process has genuinely be wonderful. i wanted to share it here. my mindset. my process. my learning stack.
+anyway, this whole process has genuinely been wonderful. i wanted to share it here. my mindset. my process. my learning stack.
 
 
 ## make it fun
@@ -30,7 +29,7 @@ i think this is important, because learning a language is a multi year process. 
 
 to draw from my own experience in the gym. 
 
-there was a moment i actually felt *strong* in the gym. it wasn't something that i saw coming. there wasn't a 'final sprint' until i finally become strong. it wasn't like 'OH MY GOSH IM FINALLY STRONG'
+there was a moment i actually felt *strong* in the gym. it wasn't something that i saw coming. there wasn't a 'final sprint' until i finally became strong. it wasn't like 'OH MY GOSH IM FINALLY STRONG'
 
 i just found myself lifting really heavy one day. maxing out machines. doing more weight than those around me. 
 
@@ -125,7 +124,7 @@ because:
 - i do know mandarin, so that's an unfair advantage 
 - it's not important to me. i'll be ok with it if i struggle a bit with reading 
 
-i just think that reading is the lowest priroity. i mean like we learn so that we can, idk, just go to japan and talk to people, or watch anime without subtitles. 
+i just think that reading is the lowest priority. i mean like we learn so that we can, idk, just go to japan and talk to people, or watch anime without subtitles. 
 
 i think it's not important.
 
@@ -158,7 +157,7 @@ it's like
 
 anyone can learn a new language. and it's not hard. it's actually really fun. if you do it right.
 
-before i started, i would do mental equations of like 'ok if i need 10k hours to learn a new langauge, i just need to spend 2 hours a day, and then that's 5k days, ok wait that's really long, oh that's why they use podcasts, but wait since podcasts are more passive, do they really count towards the 10k hours the same way actively studying does, but what if...'
+before i started, i would do mental equations of like 'ok if i need 10k hours to learn a new language, i just need to spend 2 hours a day, and then that's 5k days, ok wait that's really long, oh that's why they use podcasts, but wait since podcasts are more passive, do they really count towards the 10k hours the same way actively studying does, but what if...'
 
 and now it's like
 
