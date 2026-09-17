@@ -1,0 +1,143 @@
+---
+title: 'what actually is apache spark?'
+date: 2026-09-17
+draft: false
+---
+
+import NodesAndEdges from '../../components/diagrams/NodesAndEdges.astro';
+import DriverAndWorkers from '../../components/diagrams/DriverAndWorkers.astro';
+
+what is spark?
+spark? apache spark? pyspark? managed spark? 
+what does it all meannnnnnn
+
+i've been working with spark through databricks for about a year now, and it's embarrassing to admit i still don't feel like i fully know. 
+
+ok how's this. imma start typing down what i think spark is, and then imma fact check myself and see where we land.
+
+## what is spark? (according to ernest)
+Spark is an open source project. open source means that it's free and you can look at all the code in GitHub. 
+
+Apache is an organization, and Spark is one of their open source projects among many (Kafka, Flink, etc)
+
+so, back in the days, like the 1900s. the size of data wasn't crazy. people would just do their data processing and transformations on a single machine. 
+
+but as time went on, companies realized that data provides rly valuable insight, and they started collecting more and more data. so, machines needed to be stronger. 
+
+but then, at some point, the data was too much even for a single machine to handle. 
+
+so, this group of people from UC Berkeley were like hey why don't we *distribute* the data to multiple machines, so that they can all process the data in parallel. you can only make a single machine so powerful. but you can chain together a bunch of machines to no end. 
+
+so, Spark is a distributed processing system.
+
+wow, im just typing this as i go. i feel like that landed pretty well.
+
+in this system, we have driver nodes, and worker nodes. oh, what are nodes?
+
+<NodesAndEdges />
+
+these are nodes and edges. nodes and edges are a type of system where you wanna link one 'thing' to another 'thing' and there can be multiple 'things' with multiple links. 
+
+spark is an example of that kinda system.
+
+so, we say 'nodes' to describe the machines in our system that are linked to other machines. you'll hear 'nodes' and 'machines' used interchangeably in this context.
+
+i think it's helpful to know this because nodes and edges are used to describe a lot of things. so yea, 'nodes' is an umbrella term. 
+
+so, driver nodes and worker nodes. 
+
+<DriverAndWorkers />
+
+we have a driver that will 'break up a task and assign it' to the worker nodes. then, when the worker nodes are done with their tasks, they send the results back to the driver node for compilation.
+
+ok! let's check with AI to see how accurate this description was.
+
+## corrections by AI
+
+**i said:**
+
+> this group of people from UC Berkeley were like hey why don't we *distribute* the data to multiple machines
+
+Berkeley didn't come up with distributing data across machines. Google published the MapReduce paper in 2004, and Hadoop was built from it in 2006. Berkeley's AMPLab built Spark in 2009 to fix a specific problem with Hadoop — it wrote results to disk after every step, which is slow when you're doing many steps in a row. Spark keeps them in memory. That's where the "100x faster" claims come from.
+
+---
+
+**i said:**
+
+> they send the results back to the driver node for compilation
+
+Compilation means turning source code into machine code. The word you want is aggregating.
+
+And results usually don't come back to the driver at all — they get written straight to storage. Pulling everything back to the driver is one of the most common ways to run a Spark job out of memory.
+
+---
+
+**i said:**
+
+> in this system, we have driver nodes, and worker nodes
+
+One driver per application, many workers. Also: a worker is the machine, an executor is the process running on it that does the actual work. One worker can host several executors.
+
+---
+
+**i said:**
+
+> nodes and edges are a type of system
+
+Nodes and edges *are* a graph — that's the word. Which pays off later: Spark plans your job as a DAG, a directed acyclic graph.
+
+---
+
+**i said:**
+
+> open source means that it's free and you can look at all the code in GitHub
+
+Open source is about the license, not the price. Public code isn't enough on its own — the license has to let you use it, change it, and pass it on. Free usually follows, but it's a side effect, not the definition.
+
+## thoughts
+ok. yea couple of mistakes. spark didn't introduce distributed processing. its innovation is shifting from disk to memory. 
+
+yea, and u generally don't send the results back to the driver node, that's true lol. that would break things.
+
+ok sweet. wasn't too far off tho. 
+
+## what is spark? (finalized)
+Spark is an open source project. open source means that the code for it is public. and anyone can use it.
+
+Apache is an organization, and Spark is one of their open source projects among many (Kafka, Flink, etc)
+
+so, back in the days, the size of data wasn't crazy. people would just do their data processing and transformations on a single machine. 
+
+but as time went on, companies realized that data provides rly valuable insight, and they started collecting more and more data. so, machines needed to be stronger. 
+
+but then, at some point, the data was too much even for a single machine to handle. 
+
+so, Google came along and said hey isn't it a lot better to *distribute* the data to multiple machines, so that they can all process the data in parallel. you can only make a single machine so powerful. but you can chain together a bunch of machines to no end. 
+
+Google published a paper on this. then, some guys came along, built their own version of it, and called it Hadoop.
+
+but, it had an issue. for every processing step it did, hadoop wrote the results back to disk. 
+
+this is where Spark comes in. instead of writing the results back to disk after every processing step, it keeps them in memory and moves straight on to the next one. it still writes to disk when it has to (like when it needs to move data between machines). just not after every single step. 
+
+in this system, we have a driver node, and worker nodes. oh, what are nodes?
+
+<NodesAndEdges />
+
+these are nodes and edges. when you link one 'thing' to another 'thing', and there can be multiple 'things' with multiple links, that whole picture is called a graph. the 'things' are the nodes, and the links between them are the edges.
+
+a spark cluster is an example of that. a bunch of machines, all linked to each other.
+
+so, we say 'nodes' to describe the machines in our cluster. you'll hear 'nodes' and 'machines' used interchangeably in this context.
+
+i think it's helpful to know this because nodes and edges are used to describe a lot of things.
+
+so, driver and worker nodes.
+
+<DriverAndWorkers />
+
+so, let's say we're tryna process data. the data is stored on disk. 
+
+the user tells the driver node, 'i wanna aggregate this data'. the driver node then takes that task, breaks it up, and assigns it to worker nodes. then the worker nodes work on the tasks in parallel. finally, they send the results back to the disk for the user to read.
+
+ok, i think i know what spark is now. 
