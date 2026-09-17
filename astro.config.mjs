@@ -1,12 +1,13 @@
 // @ts-check
 import { defineConfig, fontProviders } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import mdx from '@astrojs/mdx';
 import { satteri } from '@astrojs/markdown-satteri';
 import { softBreaks } from './src/plugins/soft-breaks.mjs';
 
 export default defineConfig({
   site: 'https://ernestau.com',
-  integrations: [sitemap()],
+  integrations: [mdx(), sitemap()],
 
   // The old slug was live before the rename. Static builds emit a small
   // redirect page, so any link already shared still lands in the right place.

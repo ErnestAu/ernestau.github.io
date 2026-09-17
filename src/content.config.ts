@@ -10,7 +10,7 @@ import { glob } from 'astro/loaders';
  * so a broken entry can never reach the live site.
  */
 const til = defineCollection({
-  loader: glob({ pattern: '**/*.md', base: './src/content/til' }),
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/til' }),
   schema: z.object({
     /** Shown as the page heading, in the list, and in the browser tab. */
     title: z.string(),
