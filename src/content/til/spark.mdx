@@ -15,7 +15,7 @@ i've been working with spark through databricks for about a year now, and it's e
 
 ok how's this. imma start typing down what i think spark is, and then imma fact check myself and see where we land.
 
-## what is spark? (according to ernest)
+## what is spark? (before fact checking)
 Spark is an open source project. open source means that it's free and you can look at all the code in GitHub. 
 
 Apache is an organization, and Spark is one of their open source projects among many (Kafka, Flink, etc)
@@ -46,7 +46,7 @@ i think it's helpful to know this because nodes and edges are used to describe a
 
 so, driver nodes and worker nodes. 
 
-<DriverAndWorkers />
+<DriverAndWorkers wrong note="heads up: this diagram is wrong" />
 
 we have a driver that will 'break up a task and assign it' to the worker nodes. then, when the worker nodes are done with their tasks, they send the results back to the driver node for compilation.
 
