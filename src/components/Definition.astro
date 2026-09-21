@@ -1,0 +1,28 @@
+---
+/**
+ * A term being pinned down mid-article.
+ *
+ * Styling lives in global.css, because the slotted content is
+ * markdown-generated HTML that scoped styles can't reach.
+ *
+ * Usage in .mdx — blank lines inside the tags so MDX parses the body
+ * as markdown:
+ *
+ *   <Definition term="shuffling">
+ *
+ *   the physical moving of rows between partitions.
+ *
+ *   </Definition>
+ */
+interface Props {
+  /** The word being defined. */
+  term: string;
+}
+
+const { term } = Astro.props;
+---
+
+<div class="definition">
+  <dfn class="definition-term">{term}</dfn>
+  <div class="definition-body"><slot /></div>
+</div>

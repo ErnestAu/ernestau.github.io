@@ -1,0 +1,29 @@
+---
+/**
+ * An AI correction inside a fact-check entry.
+ *
+ * Wraps the correction text so it reads as a distinct voice from Ernest's.
+ * Styling lives in global.css, because the children are markdown-generated
+ * HTML that scoped styles can't reach.
+ *
+ * Usage in .mdx — keep a blank line around the content so MDX parses it as
+ * markdown rather than as a JSX expression:
+ *
+ *   <Correction>
+ *
+ *   Partitioning is deciding: ...
+ *
+ *   </Correction>
+ */
+interface Props {
+  /** Override the label. Defaults to the standard one. */
+  label?: string;
+}
+
+const { label = 'Correction by AI' } = Astro.props;
+---
+
+<div class="correction">
+  <p class="correction-label">{label}</p>
+  <slot />
+</div>
