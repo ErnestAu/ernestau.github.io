@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local-only: side-by-side draft comparison, never publish
+public/compare.html
