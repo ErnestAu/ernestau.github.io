@@ -20,7 +20,19 @@
     "*": true,
     "markdown": false,
     "mdx": false,
-    "plaintext": false
+    "plaintext": false,
+    "typescript": false,
+    "typescriptreact": false,
+    "astro": false
+  },
+  "[typescript]": {
+    "editor.inlineSuggest.enabled": false
+  },
+  "[typescriptreact]": {
+    "editor.inlineSuggest.enabled": false
+  },
+  "[astro]": {
+    "editor.inlineSuggest.enabled": false
   },
   "[markdown]": {
     "editor.wordWrap": "on",
