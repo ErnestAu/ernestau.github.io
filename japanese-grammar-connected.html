@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Japanese grammar, connected · N5–N2</title>
+<style>
+:root{--ink:#1B1F2A;--mute:#6B7280;--rule:#E4E7EE;--bg:#FFFFFF;--slot:#F6E7A6;--n5:#2E7D5B;--n4:#2C5AA0;--n3:#B8641B;--n2:#7A3E9D}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Yu Gothic","Meiryo","Noto Sans JP","Noto Sans CJK JP",-apple-system,"Segoe UI",Roboto,sans-serif;font-size:15px;line-height:1.5}
+header{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--rule);padding:10px 14px 8px}
+h1{font-size:16px;font-weight:700;margin:0 0 7px}
+.bar{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.lv{border:1.5px solid currentColor;background:transparent;color:var(--c);border-radius:999px;padding:3px 10px;font:inherit;font-size:13px;font-weight:700;cursor:pointer;line-height:1.3}
+.lv small{font-weight:400;opacity:.85;font-size:11.5px}
+.lv.off{color:var(--mute);border-color:var(--rule);opacity:.65}
+.lv:focus-visible,input:focus-visible,select:focus-visible,nav a:focus-visible,.tab:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+input[type=search]{flex:1;min-width:130px;border:1px solid var(--rule);border-radius:8px;padding:6px 10px;font:inherit;font-size:14px;color:var(--ink)}
+select{border:1px solid var(--rule);border-radius:8px;padding:6px 8px;font:inherit;font-size:13px;background:#fff;color:var(--ink)}
+nav{display:flex;gap:6px;overflow-x:auto;padding:8px 14px;border-bottom:1px solid var(--rule);scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+nav a{white-space:nowrap;font-size:13px;color:var(--ink);text-decoration:none;border:1px solid var(--rule);border-radius:6px;padding:3px 8px}
+nav a small{color:var(--mute);margin-left:4px}
+nav a.hide{display:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;margin:0 0 8px}
+.seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:4px 14px;cursor:pointer}
+.seg button[aria-selected=true]{background:var(--ink);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--ink);outline-offset:-4px}
+body.conj .maponly,body.map .conjonly{display:none}
+body.conj #v-map,body.map #v-conj{display:none}
+.lead{font-size:15px;margin:0;max-width:68ch}
+.part{padding:22px 0 0}
+nav .gap{width:6px;flex:none;border-left:1px solid var(--rule)}
+.wrap{padding:0 14px;max-width:1120px}
+.part{padding:26px 0 4px}
+.part h2{font-size:13px;font-weight:400;color:var(--mute);margin:0 0 2px}
+.part .lead{font-size:15px;margin:0;max-width:68ch}
+.found{padding:22px 0 18px;border-bottom:1px solid var(--rule);scroll-margin-top:110px}
+.ht{font-size:23px;font-weight:700;line-height:1.35;margin:0}
+.sub{font-size:13.5px;margin:6px 0 0;max-width:68ch}
+.three{margin-top:8px}
+.sys{padding:12px 0 10px;border-top:1px solid var(--rule)}
+.sys b{font-size:16px}
+.sys p{margin:3px 0 0;font-size:14px;max-width:60ch}
+.sys .w{font-size:19px;margin-top:6px;font-weight:700}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 10px}
+.tab{border:1px solid var(--rule);background:transparent;border-radius:6px;padding:4px 10px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
+.tab[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.gw{font-size:24px;font-weight:700}
+.gg{color:var(--mute);font-size:13px;margin-left:8px}
+table{border-collapse:collapse;width:100%;max-width:680px;margin-top:8px;font-size:15px}
+th,td{text-align:left;padding:7px 12px 7px 0;border-top:1px solid var(--rule);vertical-align:top}
+th{font-weight:400;color:var(--mute);font-size:13px;white-space:nowrap}
+thead th{border-top:0;padding-top:0}
+.ro{display:block;color:var(--mute);font-size:12px}
+.jp{font-size:16.5px}
+.fn{font-size:13.5px;margin:10px 0 0;max-width:68ch}
+.warn{font-size:13.5px;margin:10px 0 0;padding-left:10px;border-left:3px solid var(--slot);max-width:68ch}
+.t2{margin-top:22px}
+main{padding-bottom:20px}
+main section{padding:24px 0 6px;border-bottom:1px solid var(--rule);scroll-margin-top:110px}
+main section.hide{display:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;margin:0 0 8px}
+.seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:4px 14px;cursor:pointer}
+.seg button[aria-selected=true]{background:var(--ink);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--ink);outline-offset:-4px}
+body.conj .maponly,body.map .conjonly{display:none}
+body.conj #v-map,body.map #v-conj{display:none}
+.lead{font-size:15px;margin:0;max-width:68ch}
+.part{padding:22px 0 0}
+.anchor{font-size:23px;font-weight:700;line-height:1.35;margin:0;letter-spacing:.01em}
+.slot{display:inline-block;width:58px;height:.95em;vertical-align:-.12em;background:var(--slot);border-radius:4px}
+.gt{font-size:13px;color:var(--mute);margin:3px 0 0}
+.how{font-size:14px;margin:8px 0 0;padding:6px 10px;background:#F7F8FA;border-radius:6px;display:inline-block;max-width:100%}
+.how a{color:var(--mute)}
+.gn{font-size:13.5px;margin:8px 0 12px;max-width:68ch}
+.cnt{color:var(--mute);font-size:12px;margin-left:8px;font-weight:400}
+.row{display:grid;grid-template-columns:auto 1fr;grid-template-areas:"pip p" ". m" ". ex" ". c";column-gap:10px;padding:8px 0;border-top:1px solid var(--rule)}
+.row.hide{display:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;margin:0 0 8px}
+.seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:4px 14px;cursor:pointer}
+.seg button[aria-selected=true]{background:var(--ink);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--ink);outline-offset:-4px}
+body.conj .maponly,body.map .conjonly{display:none}
+body.conj #v-map,body.map #v-conj{display:none}
+.lead{font-size:15px;margin:0;max-width:68ch}
+.part{padding:22px 0 0}
+.pip{grid-area:pip;width:8px;height:8px;border-radius:50%;margin-top:9px;background:var(--c)}
+.p{grid-area:p;font-weight:700;font-size:16px}
+.tg{color:var(--mute);font-size:11.5px;margin-left:7px;font-weight:400}
+.m{grid-area:m;font-size:14px}
+.ex{grid-area:ex;margin-top:3px}
+.e{font-size:14.5px}
+.x{color:var(--mute);font-size:13px;margin-left:6px}
+.c{grid-area:c;font-size:12.5px;color:var(--mute);margin-top:3px}
+.c::before{content:"↳ "}
+.foot{padding:20px 0 40px;color:var(--mute);font-size:13px;max-width:70ch}
+.empty{color:var(--mute);padding:40px 0}
+.hide{display:none}
+.seg{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;margin:0 0 8px}
+.seg button{border:0;background:transparent;color:var(--ink);font:inherit;font-size:13px;font-weight:700;padding:4px 14px;cursor:pointer}
+.seg button[aria-selected=true]{background:var(--ink);color:#fff}
+.seg button:focus-visible{outline:2px solid var(--ink);outline-offset:-4px}
+body.conj .maponly,body.map .conjonly{display:none}
+body.conj #v-map,body.map #v-conj{display:none}
+.lead{font-size:15px;margin:0;max-width:68ch}
+.part{padding:22px 0 0}
+@media(min-width:780px){
+ .three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;border-top:1px solid var(--rule)}
+ .sys{border-top:0;padding-top:14px}
+ .row{grid-template-columns:auto 250px 1fr 1fr 1fr;grid-template-areas:"pip p m e x" ". c c c c";column-gap:16px;padding:7px 0;align-items:start}
+ .ex{display:contents}
+ .e{grid-area:e}
+ .x{grid-area:x;margin:0;padding-top:2px}
+ .c{margin-top:1px}
+ .anchor,.ht{font-size:27px}
+ .slot{width:72px}
+ main section,.found{scroll-margin-top:70px}
+}
+</style>
+</head>
+<body>
+<header>
+<h1>Japanese grammar, connected</h1>
+<div class="seg" role="tablist" aria-label="View">
+<button role="tab" data-v="conj" aria-selected="true">Conjugation</button>
+<button role="tab" data-v="map" aria-selected="false">Grammar map <span class="cnt" id="total"></span></button>
+</div>
+<div class="bar maponly">
+<button class="lv" data-l="5" style="--c:var(--n5)">N5 <small id="c5"></small></button>
+<button class="lv" data-l="4" style="--c:var(--n4)">N4 <small id="c4"></small></button>
+<button class="lv off" data-l="3" style="--c:var(--n3)">N3 <small id="c3"></small> <small>core</small></button>
+<button class="lv off" data-l="2" style="--c:var(--n2)">N2 <small id="c2"></small> <small>core</small></button>
+<input type="search" id="q" placeholder="Search pattern, meaning, example" aria-label="Search">
+<select id="fn" aria-label="Filter by function"><option value="">All functions</option></select>
+</div>
+</header>
+<nav class="conjonly" aria-label="Conjugation sections"><a href="#f-three">3 systems</a><a href="#f-grid">Grid</a><a href="#f-sound">た・て</a><a href="#f-irr">Irregulars</a></nav>
+<nav id="nav" class="maponly" aria-label="Map sections"></nav>
+
+<div class="wrap">
+<div id="v-conj" class="view">
+<div class="part"><p class="lead">How one word carries tense. Two things to know cold: which of three systems a word belongs to, and the eight slots every word fills.</p></div>
+
+<div class="found" id="f-three">
+<p class="ht">There are three systems, not five</p>
+<p class="sub">Every word class conjugates by one of three patterns. Nouns and な-adjectives are literally identical, so learning one gives you both.</p>
+<div class="three">
+<div class="sys"><b>Verbs</b><p>Godan and ichidan differ only in how you reach the stem. Once you have the stem, the endings are the same.</p><div class="w">書く · 食べる</div></div>
+<div class="sys"><b>い-adjectives</b><p>Their own island. The い carries the tense. です is a politeness tag bolted on the end and never conjugates.</p><div class="w">寒い · 高い · ない · たい</div></div>
+<div class="sys"><b>Nouns and な-adjectives</b><p>The same pattern, exactly. だ／だった plain, です／でした polite. This is the only place でした belongs.</p><div class="w">学生 · 静か</div></div>
+</div>
+<p class="warn">There is no such thing as a う-adjective. The う／る split applies to verbs only. Adjectives split into い and な.</p>
+</div>
+
+<div class="found" id="f-grid">
+<p class="ht">The eight-cell grid</p>
+<p class="sub">Plain against polite, present against past, positive against negative. Every word class fills the same eight slots.</p>
+<div class="tabs" id="tabs" role="tablist">
+<button class="tab" role="tab" data-k="godan" aria-selected="true">Verb · godan</button>
+<button class="tab" role="tab" data-k="ichidan" aria-selected="false">Verb · ichidan</button>
+<button class="tab" role="tab" data-k="iadj" aria-selected="false">い-adjective</button>
+<button class="tab" role="tab" data-k="naadj" aria-selected="false">な-adjective</button>
+<button class="tab" role="tab" data-k="noun" aria-selected="false">Noun</button>
+</div>
+<div><span class="gw" id="w"></span><span class="gg" id="g"></span></div>
+<table>
+<thead><tr><th></th><th>positive</th><th>negative</th></tr></thead>
+<tbody>
+<tr><th>Plain · present</th><td class="jp"><span id="f0"></span><span class="ro" id="r0"></span></td><td class="jp"><span id="f1"></span><span class="ro" id="r1"></span></td></tr>
+<tr><th>Polite · present</th><td class="jp"><span id="f4"></span><span class="ro" id="r4"></span></td><td class="jp"><span id="f5"></span><span class="ro" id="r5"></span></td></tr>
+<tr><th>Plain · past</th><td class="jp"><span id="f2"></span><span class="ro" id="r2"></span></td><td class="jp"><span id="f3"></span><span class="ro" id="r3"></span></td></tr>
+<tr><th>Polite · past</th><td class="jp"><span id="f6"></span><span class="ro" id="r6"></span></td><td class="jp"><span id="f7"></span><span class="ro" id="r7"></span></td></tr>
+</tbody>
+</table>
+<p class="fn" id="gridnote"></p>
+</div>
+
+<div class="found" id="f-sound">
+<p class="ht">Reaching た and て</p>
+<p class="sub">Ichidan verbs drop る and never change sound. Godan verbs change sound by their final kana - the same change for both た and て, so memorise it once and swap た↔て, だ↔で.</p>
+<table>
+<thead><tr><th>ends in</th><th>past</th><th>て-form</th><th>example</th></tr></thead>
+<tbody>
+<tr><th class="jp">う · つ · る</th><td class="jp">った</td><td class="jp">って</td><td class="jp">買う → 買った → 買って</td></tr>
+<tr><th class="jp">ぬ · ぶ · む</th><td class="jp">んだ</td><td class="jp">んで</td><td class="jp">飲む → 飲んだ → 飲んで</td></tr>
+<tr><th class="jp">く</th><td class="jp">いた</td><td class="jp">いて</td><td class="jp">書く → 書いた → 書いて</td></tr>
+<tr><th class="jp">ぐ</th><td class="jp">いだ</td><td class="jp">いで</td><td class="jp">泳ぐ → 泳いだ → 泳いで</td></tr>
+<tr><th class="jp">す</th><td class="jp">した</td><td class="jp">して</td><td class="jp">話す → 話した → 話して</td></tr>
+</tbody>
+</table>
+<p class="warn">行く is irregular here: 行った・行って, not ×いいた. And a verb ending in る is not automatically ichidan - if the vowel before る is a, u or o it's always godan; if i or e it's usually ichidan, except 帰る・入る・走る・知る・切る・要る.</p>
+</div>
+
+<div class="found" id="f-irr">
+<p class="ht">The two true irregulars</p>
+<table>
+<thead><tr><th></th><th>する</th><th>来る</th></tr></thead>
+<tbody>
+<tr><th>plain negative</th><td class="jp">しない</td><td class="jp">来ない<span class="ro">konai</span></td></tr>
+<tr><th>plain past</th><td class="jp">した</td><td class="jp">来た<span class="ro">kita</span></td></tr>
+<tr><th>ます-stem</th><td class="jp">し</td><td class="jp">来<span class="ro">ki</span></td></tr>
+<tr><th>て-form</th><td class="jp">して</td><td class="jp">来て<span class="ro">kite</span></td></tr>
+<tr><th>volitional</th><td class="jp">しよう</td><td class="jp">来よう<span class="ro">koyou</span></td></tr>
+<tr><th>potential</th><td class="jp">できる</td><td class="jp">来られる<span class="ro">korareru</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="v-map" class="view">
+<div class="part"><p class="lead">How words chain. Tense lives on the last element of a chain; everything before it is a connector carrying no tense of its own. So every tail below is either a word from the conjugation grid - its class is noted under the row - or a connector that hands tense on to the next clause.</p></div>
+<p class="sub" style="margin-top:8px;color:var(--mute)">Each section is one place a tail can attach. When a Bunpro point feels new, find its stem here first. N3 and N2 are off by default - switch them on to look ahead. Levels are approximate to Bunpro's ordering.</p>
+
+<main id="main"></main>
+<p class="empty hide" id="none">Nothing matches. Clear the search or turn a level back on.</p>
+<p class="foot">N5 and N4 are close to complete. N3 and N2 hold the core points only - the ones that reuse the stems above - and are meant to be filled out once the format has proven itself. Cross-check any N2 nuance against Bunpro before trusting it.</p>
+</div>
+</div>
+<script>
+const D=[
+[5, "cop", "だ／です", "is; am; are (plain／polite copula)", "学生だ。／学生です。", "I'm a student.", "copula"],
+[5, "cop", "じゃない／ではない", "is not", "学生じゃない。", "Not a student.", "negation"],
+[5, "cop", "だった／でした", "was", "学生だった。", "Was a student.", "tense"],
+[5, "cop", "じゃなかった／じゃありませんでした", "was not", "学生じゃなかった。", "Wasn't a student.", "negation"],
+[5, "cop", "い形容詞", "い-adjective: ends in い, conjugates on its own stem", "高い山", "a tall mountain", "structure"],
+[5, "cop", "な形容詞", "な-adjective: needs な before a noun", "静かな町", "a quiet town", "structure"],
+[5, "cop", "〜くない", "い-adj negative", "高くない", "not tall", "negation"],
+[5, "cop", "〜かった", "い-adj past", "高かった", "was tall", "tense"],
+[5, "cop", "〜くなかった", "い-adj past negative", "高くなかった", "wasn't tall", "negation"],
+[5, "cop", "〜くて", "い-adj て-form: and", "高くて大きい", "tall and big", "listing"],
+[5, "cop", "〜で", "noun／な-adj て-form: and", "静かできれい", "quiet and pretty", "listing"],
+[5, "cop", "〜く", "い-adj → adverb", "早く走る", "run fast", "manner"],
+[5, "cop", "〜に", "な-adj → adverb", "静かに話す", "speak quietly", "manner"],
+[5, "cop", "〜くなる／になる", "become", "暖かくなる／元気になる", "get warm／get well", "change", "なる is godan → なります・なった"],
+[5, "cop", "〜くする／にする", "make something ~", "部屋をきれいにする", "make the room clean", "change", "する carries tense → します・した"],
+[5, "cop", "いい → よく", "いい is irregular: よくない・よかった", "天気がよかった。", "The weather was good.", "structure"],
+[5, "cop", "ない (adj)", "ない conjugates as an い-adj: なかった・なくて", "時間がなかった。", "There was no time.", "structure"],
+[5, "cop", "あまり〜ない", "not very", "あまり高くない。", "Not very expensive.", "degree"],
+[5, "part", "は", "topic: as for", "私は学生です。", "I'm a student.", "structure"],
+[5, "part", "が", "subject／new info; question words always take が", "誰が来ましたか。", "Who came?", "structure"],
+[5, "part", "を", "direct object", "パンを食べます。", "I eat bread.", "structure"],
+[5, "part", "に", "point in time; destination; recipient", "七時に東京に行きます。", "I'm going to Tokyo at 7.", "structure"],
+[5, "part", "に (頻度)", "per (frequency)", "週に二回行く。", "Go twice a week.", "time"],
+[5, "part", "で", "place of action; means", "図書館で勉強する。／ペンで書く。", "Study at the library.／Write with a pen.", "structure"],
+[5, "part", "へ", "direction toward", "学校へ行きます。", "I go to school.", "structure"],
+[5, "part", "と", "and (complete list); with", "友達とご飯を食べる。", "I eat with a friend.", "listing"],
+[5, "part", "も", "also; too", "私も行きます。", "I'm going too.", "listing"],
+[5, "part", "の", "possessive; links nouns", "私の本", "my book", "structure"],
+[5, "part", "から", "from", "九時から働く。", "I work from 9.", "time"],
+[5, "part", "まで", "until; as far as", "五時まで働く。", "I work until 5.", "time"],
+[5, "part", "より", "than", "東京は大阪より大きい。", "Tokyo is bigger than Osaka.", "comparison"],
+[5, "part", "や", "and (partial list)", "りんごやバナナを買った。", "I bought apples, bananas and so on.", "listing"],
+[5, "part", "か (or)", "or", "コーヒーか紅茶", "coffee or tea", "listing"],
+[5, "part", "だけ", "only", "水だけ飲む。", "I drink only water.", "limit"],
+[5, "part", "しか〜ない", "nothing but (needs a negative)", "水しか飲まない。", "I drink nothing but water.", "limit"],
+[5, "part", "くらい／ぐらい", "about; roughly", "一時間くらい待った。", "I waited about an hour.", "degree"],
+[5, "part", "ごろ", "around (a time)", "三時ごろ来る。", "Coming around 3.", "time"],
+[5, "part", "など", "and so on", "本などを読む。", "I read books and such.", "listing"],
+[5, "part", "でも (例示)", "… or something", "お茶でも飲みませんか。", "Want tea or something?", "listing"],
+[5, "dict", "〜前に", "before doing", "寝る前に歯を磨く。", "Brush teeth before bed.", "time", "always dictionary form, even in the past: 寝る前に磨いた"],
+[5, "dict", "〜ことができる", "can do", "泳ぐことができる。", "I can swim.", "ability", "できる is ichidan → できます・できた・できない"],
+[5, "dict", "〜のが好き／嫌い", "like／dislike doing", "走るのが好きだ。", "I like running.", "desire", "好き is a な-adj → 好きです・好きだった"],
+[5, "dict", "〜のが上手／下手", "good／bad at doing", "歌うのが上手だ。", "Good at singing.", "ability"],
+[5, "dict", "〜つもりだ", "intend to", "来年行くつもりだ。", "I intend to go next year.", "intention", "だ／です → つもりです・つもりだった"],
+[5, "masu", "〜ます／ません", "polite present／negative", "書きます／書きません", "write／don't write", "politeness", "the whole polite set lives on this stem"],
+[5, "masu", "〜ました／ませんでした", "polite past／past negative", "書きました／書きませんでした", "wrote／didn't write", "politeness"],
+[5, "masu", "〜たい", "want to (conjugates as an い-adj)", "食べたい。", "I want to eat.", "desire", "たい is an い-adj → たくない・たかった・たいです"],
+[5, "masu", "〜たくない／たかった", "don't want to／wanted to", "食べたくない。／食べたかった。", "Don't want to eat.／Wanted to eat.", "desire"],
+[5, "masu", "〜ましょう", "let's", "行きましょう。", "Let's go.", "invitation"],
+[5, "masu", "〜ましょうか", "shall I／we?", "手伝いましょうか。", "Shall I help?", "invitation"],
+[5, "masu", "〜ませんか", "won't you? (invitation)", "一緒に行きませんか。", "Won't you come along?", "invitation"],
+[5, "masu", "〜に行く／来る", "go／come in order to", "映画を見に行く。", "Go to see a movie.", "purpose", "行く is godan → 見に行きます・見に行った; する-verbs → 勉強しに行く"],
+[5, "te", "〜て (順序)", "and then; and (linking clauses)", "朝起きて、走った。", "Got up and ran.", "sequence", "only the final verb takes tense"],
+[5, "te", "〜ている (進行)", "is doing", "今食べている。", "Eating right now.", "aspect", "いる is ichidan → 食べています・食べていた・食べていない"],
+[5, "te", "〜ている (状態)", "is in the state of (result)", "結婚している。", "Is married.", "aspect", "same いる → 結婚しています・結婚していた"],
+[5, "te", "まだ〜ていない", "not yet", "まだ食べていない。", "Haven't eaten yet.", "aspect", "negative of いる → いない・いなかった・いません"],
+[5, "te", "〜てください", "please do", "見てください。", "Please look.", "request", "fixed - ください doesn't conjugate here"],
+[5, "te", "〜てもいい", "may; it's fine to", "帰ってもいい。", "You may go home.", "permission", "いい is an い-adj → 食べてもよかった・帰ってもいいです"],
+[5, "te", "〜てはいけない", "must not", "入ってはいけない。", "You must not enter.", "prohibition", "いけない carries tense → いけません・いけなかった"],
+[5, "te", "〜てから", "after doing", "食べてから出る。", "Leave after eating.", "sequence", "connector - the verb after it carries tense"],
+[5, "ta", "〜たり〜たりする", "do things like A and B", "読んだり書いたりする。", "Do things like reading and writing.", "listing", "する carries tense → 読んだり書いたりします・しました"],
+[5, "ta", "〜た後で", "after doing", "食べた後で寝る。", "Sleep after eating.", "time", "connector - the main clause carries tense"],
+[5, "nai", "〜ない／なかった", "plain negative／past negative", "行かない。／行かなかった。", "Don't go.／Didn't go.", "negation", "ない is an い-adj → なかった・なくて・ないです"],
+[5, "nai", "〜ないでください", "please don't", "触らないでください。", "Please don't touch.", "request"],
+[5, "plain", "〜から (理由)", "because (reason first)", "寒いから閉める。", "I'll close it because it's cold.", "reason"],
+[5, "plain", "〜けど", "but; (softener)", "高いけど買う。", "It's pricey, but I'll buy it.", "contrast"],
+[5, "plain", "〜が (逆接)", "but (more formal than けど)", "高いですが、買います。", "It's expensive, but I'll buy it.", "contrast"],
+[5, "plain", "〜と思う", "I think that", "行くと思う。", "I think he'll go.", "guess", "思う is godan → 思います・思った"],
+[5, "plain", "〜でしょう", "probably; right?", "明日は雨でしょう。", "It'll probably rain tomorrow.", "guess", "fixed polite; plain form is だろう"],
+[5, "plain", "〜と言う", "say that", "行くと言った。", "Said he'd go.", "hearsay", "言う is godan → 言います・言った"],
+[5, "noun", "〜がある／いる", "there is (things／living things)", "本がある。猫がいる。", "There's a book. There's a cat.", "existence", "ある godan (negative ない) · いる ichidan (negative いない)"],
+[5, "noun", "〜がほしい", "want (a thing)", "車がほしい。", "I want a car.", "desire", "ほしい is an い-adj → ほしくない・ほしかった"],
+[5, "noun", "〜をください", "please give me", "水をください。", "Water, please.", "request"],
+[5, "noun", "〜にする (選択)", "decide on; go with", "これにする。", "I'll go with this.", "decision"],
+[5, "noun", "〜の方が", "A is more (than B)", "犬の方が好きだ。", "I prefer dogs.", "comparison"],
+[5, "noun", "一番", "the most", "一番好き", "like the most", "comparison"],
+[5, "noun", "どちら／どっち", "which (of two)", "どちらが好き？", "Which do you like?", "question"],
+[5, "noun", "〜と同じ", "same as", "私と同じだ。", "Same as me.", "comparison"],
+[5, "noun", "これ／それ／あれ／どれ", "this／that／that over there／which", "これは本だ。", "This is a book.", "pointing"],
+[5, "noun", "この／その／あの／どの", "this／that (before a noun)", "この本", "this book", "pointing"],
+[5, "noun", "ここ／そこ／あそこ／どこ", "here／there／over there／where", "ここは学校だ。", "This is a school.", "pointing"],
+[5, "noun", "こんな／そんな／あんな／どんな", "this kind of", "どんな本？", "What kind of book?", "pointing"],
+[5, "noun", "何／誰／いつ／どこ", "what／who／when／where", "誰が来る？", "Who's coming?", "question"],
+[5, "noun", "どう／どうして／なぜ", "how／why", "どうして来ないの？", "Why aren't you coming?", "question"],
+[5, "noun", "いくら／いくつ／何時", "how much／how many／what time", "いくらですか。", "How much is it?", "question"],
+[5, "noun", "〜たち", "plural for people", "子供たち", "children", "plural"],
+[5, "noun", "〜人／〜つ／〜回", "counters: people／things／times", "三人・三つ・三回", "3 people・3 things・3 times", "counting"],
+[5, "sf", "〜か", "question", "学生ですか。", "Are you a student?", "question"],
+[5, "sf", "〜ね", "seeking agreement", "いい天気ですね。", "Nice weather, isn't it?", "stance"],
+[5, "sf", "〜よ", "asserting; informing", "それは違うよ。", "That's wrong, you know.", "stance"],
+[4, "cop", "〜さ", "-ness (adj → noun)", "高さ", "height", "nominalize"],
+[4, "cop", "〜すぎる (adj)", "too ~", "高すぎる", "too expensive", "degree", "ichidan → 高すぎます・高すぎた"],
+[4, "cop", "〜そうだ (adj 様態)", "looks ~", "美味しそう。", "Looks tasty.", "appearance", "な-adj → 美味しそうです・美味しそうな"],
+[4, "cop", "〜がる", "shows signs of feeling (3rd person)", "寒がっている。", "He's acting cold.", "appearance", "godan → 寒がります・寒がっている"],
+[4, "part", "ばかり", "only; nothing but", "ゲームばかりしている。", "Does nothing but game.", "limit"],
+[4, "part", "までに", "by (deadline)", "五時までに帰る。", "I'll be back by 5.", "time"],
+[4, "part", "ずつ", "each; at a time", "一つずつ食べる。", "Eat one at a time.", "distribution"],
+[4, "part", "でも (譲歩)", "even", "子供でも分かる。", "Even a child understands.", "emphasis"],
+[4, "part", "とか", "things like", "寿司とかラーメンとか", "sushi, ramen, and so on", "listing"],
+[4, "part", "について", "about", "日本について話す。", "Talk about Japan.", "topic"],
+[4, "part", "として", "as; in the role of", "先生として働く。", "Work as a teacher.", "role"],
+[4, "part", "によって", "by (agent); depending on", "人によって違う。", "It differs by person.", "basis"],
+[4, "part", "という", "called; named", "田中という人", "a person called Tanaka", "naming"],
+[4, "part", "〜中 (じゅう／ちゅう)", "throughout／during", "一日中・会議中", "all day・in a meeting", "time"],
+[4, "part", "〜目", "ordinal", "三番目", "third", "counting"],
+[4, "dict", "〜ことがある", "there are times when", "遅れることがある。", "Sometimes I'm late.", "frequency"],
+[4, "dict", "〜ことにする", "decide to", "行くことにした。", "I decided to go.", "decision", "する carries tense → ことにします・ことにした"],
+[4, "dict", "〜ことになる", "it's been decided that", "行くことになった。", "It's been arranged that I go.", "decision", "なる is godan → ことになります・ことになった"],
+[4, "dict", "〜ようになる", "come to; reach the point of", "話せるようになった。", "Became able to speak.", "change", "なる is godan → なります・なった"],
+[4, "dict", "〜ようにする", "make a point of", "早く寝るようにする。", "I try to sleep early.", "effort", "する carries tense → します・している"],
+[4, "dict", "〜ように", "so that (also ない)", "忘れないようにメモする。", "Take notes so I don't forget.", "purpose"],
+[4, "dict", "〜ために", "in order to (also 名詞の)", "合格するために勉強する。", "Study in order to pass.", "purpose"],
+[4, "dict", "〜のに (用途)", "for the purpose of", "これは切るのに使う。", "This is used for cutting.", "purpose"],
+[4, "dict", "〜な", "don't (strong prohibition)", "入るな。", "Don't enter.", "prohibition"],
+[4, "dict", "〜予定だ", "plan to", "来週行く予定だ。", "Plan to go next week.", "intention", "だ／です → 予定です・予定だった"],
+[4, "dict", "〜まで", "until (something happens)", "来るまで待つ。", "Wait until they come.", "time"],
+[4, "dict", "〜こと", "nominalizer (the fact of ~ing)", "走ることは楽しい。", "Running is fun.", "nominalize"],
+[4, "dict", "〜の", "nominalizer (~ing)", "走るのは楽しい。", "Running is fun.", "nominalize"],
+[4, "dict", "〜時", "when (dict = not yet; た = already done)", "寝る時／寝た時", "when going to bed／when I'd slept", "time"],
+[4, "dict", "〜間（に）", "while", "寝ている間に", "while I was asleep", "time"],
+[4, "masu", "〜ながら", "while doing", "音楽を聞きながら勉強する。", "Study while listening to music.", "simultaneity", "never final - the clause after it carries tense"],
+[4, "masu", "〜方", "way of doing", "書き方", "how to write", "manner", "makes a noun → 書き方が分からない"],
+[4, "masu", "〜やすい／にくい", "easy／hard to", "読みやすい", "easy to read", "ease", "い-adjectives → 読みやすかった・読みにくくない"],
+[4, "masu", "〜すぎる", "do too much", "食べすぎた。", "Ate too much.", "degree", "ichidan → 食べすぎます・食べすぎた"],
+[4, "masu", "〜そうだ (様態)", "looks like it's about to", "雨が降りそうだ。", "Looks like rain.", "appearance", "な-adj → 降りそうです・降りそうだった・降りそうな空"],
+[4, "masu", "〜始める／終わる", "start／finish doing", "読み始めた。", "Started reading.", "aspect", "始める ichidan, 終わる godan → 読み始めた・読み終わった"],
+[4, "masu", "〜続ける", "keep doing", "走り続ける。", "Keep running.", "aspect", "ichidan → 走り続けます・走り続けた"],
+[4, "masu", "〜たがる", "(3rd person) wants to", "行きたがっている。", "He wants to go.", "desire", "godan → 行きたがります・行きたがっている"],
+[4, "masu", "〜なさい", "do (parental command)", "早く食べなさい。", "Eat up.", "command"],
+[4, "te", "〜ておく", "do in advance; leave as is", "買っておく。", "Buy it ahead of time.", "aspect", "おく is godan → 買っておきます・買っておいた"],
+[4, "te", "〜てある", "has been done (by someone)", "窓が開けてある。", "The window's been left open.", "aspect", "ある is godan → 開けてあります・開けてあった"],
+[4, "te", "〜てみる", "try doing", "食べてみる。", "Try eating it.", "attempt", "みる is ichidan → 食べてみます・食べてみた"],
+[4, "te", "〜ていく／てくる", "change going forward／up to now", "暖かくなってきた。", "It's gotten warmer.", "aspect", "行く／来る conjugate → なっていきます・なってきた"],
+[4, "te", "〜てしまう", "finish; end up (regret)", "忘れてしまった。", "I ended up forgetting.", "aspect", "しまう is godan → 忘れてしまいます・忘れてしまった"],
+[4, "te", "〜ちゃう／じゃう", "casual てしまう", "食べちゃった。", "Oops, ate it.", "aspect", "ちゃう is godan → 食べちゃった・食べちゃいます"],
+[4, "te", "〜てあげる", "do for someone", "教えてあげる。", "I'll teach you.", "giving", "あげる is ichidan → 教えてあげます・教えてあげた"],
+[4, "te", "〜てくれる", "someone does for me", "教えてくれた。", "She taught me.", "giving", "くれる is ichidan → くれます・くれた"],
+[4, "te", "〜てもらう", "get someone to do", "教えてもらった。", "I had it explained.", "giving", "もらう is godan → もらいます・もらった"],
+[4, "te", "〜ても", "even if", "雨が降っても行く。", "I'll go even if it rains.", "concession", "connector - the main clause carries tense"],
+[4, "te", "〜てもいいですか", "may I?", "座ってもいいですか。", "May I sit?", "permission"],
+[4, "te", "〜てすみません", "sorry for", "遅れてすみません。", "Sorry I'm late.", "apology"],
+[4, "te", "〜てくれてありがとう", "thanks for", "来てくれてありがとう。", "Thanks for coming.", "gratitude"],
+[4, "ta", "〜たことがある", "have done before", "日本に行ったことがある。", "I've been to Japan.", "experience", "ある is godan → あります・あった; negative ない"],
+[4, "ta", "〜た方がいい", "should (advice)", "寝た方がいい。", "You'd better sleep.", "advice", "いい → 寝た方がよかった・寝た方がいいです"],
+[4, "ta", "〜たら", "if; when (after A, B)", "着いたら電話する。", "I'll call when I arrive.", "condition", "conditional - the clause after it carries tense"],
+[4, "ta", "〜たらいい", "it'd be good to; should", "どうしたらいい？", "What should I do?", "advice", "いい → どうしたらいいですか・よかった"],
+[4, "ta", "〜たばかり", "just did", "着いたばかりだ。", "Just arrived.", "aspect", "だ／です → ばかりです・ばかりだった"],
+[4, "ta", "〜たまま", "with (state) unchanged", "電気をつけたまま寝た。", "Slept with the light on.", "state", "connector - the main clause carries tense"],
+[4, "nai", "〜ないで", "without doing; don't", "朝ご飯を食べないで来た。", "Came without breakfast.", "manner", "connector - the verb after it carries tense"],
+[4, "nai", "〜なくて", "not… and so (reason)", "お金がなくて買えない。", "No money, so can't buy.", "reason", "connector - reason clause; main clause carries tense"],
+[4, "nai", "〜なくてもいい", "don't have to", "来なくてもいい。", "You don't have to come.", "permission", "いい is an い-adj → 来なくてもよかった"],
+[4, "nai", "〜なければならない／なきゃ", "must", "行かなければならない。", "I have to go.", "obligation", "ならない carries tense → なりません・ならなかった"],
+[4, "nai", "〜なくてはいけない／なくちゃ", "must", "勉強しなくちゃ。", "Gotta study.", "obligation", "いけない carries tense → いけません・いけなかった"],
+[4, "nai", "〜ないといけない", "have to", "帰らないといけない。", "I have to go home.", "obligation", "いけない carries tense → いけません・いけなかった"],
+[4, "nai", "〜ないと", "gotta (or else)", "急がないと。", "Gotta hurry.", "obligation"],
+[4, "nai", "〜ないほうがいい", "better not", "行かないほうがいい。", "Better not go.", "advice", "いい → 行かないほうがよかった"],
+[4, "nai", "〜れる／られる (受身)", "passive", "先生に叱られた。", "Got scolded by the teacher.", "voice", "the result is ichidan → 叱られます・叱られた・叱られて"],
+[4, "nai", "〜せる／させる (使役)", "causative: make／let", "子供に野菜を食べさせる。", "Make the kid eat vegetables.", "voice", "the result is ichidan → 食べさせます・食べさせた"],
+[4, "nai", "〜させられる", "causative-passive: be made to", "一時間待たせられた。", "Was made to wait an hour.", "voice", "ichidan → 待たせられます・待たせられた"],
+[4, "erow", "〜ば", "if", "安ければ買う。", "If it's cheap, I'll buy.", "condition", "conditional - the main clause carries tense"],
+[4, "erow", "〜なければ", "if not", "行かなければ分からない。", "You won't know unless you go.", "condition"],
+[4, "erow", "〜ばいい", "just do; should", "押せばいい。", "Just push it.", "advice", "いい → 押せばよかった"],
+[4, "erow", "可能形 〜える／られる", "potential: can", "泳げる／食べられる", "can swim／can eat", "ability", "the result is ichidan → 泳げます・泳げた・食べられない"],
+[4, "erow", "命令形", "imperative (blunt)", "書け／食べろ", "Write!／Eat!", "command"],
+[4, "vol", "〜う／よう", "let's; I'll (volitional)", "行こう。", "Let's go.", "intention"],
+[4, "vol", "〜ようと思う", "thinking of doing", "行こうと思う。", "I'm thinking of going.", "intention", "思う is godan → 思います・思った・思っている"],
+[4, "vol", "〜ようか", "shall I?", "手伝おうか。", "Shall I help?", "invitation"],
+[4, "plain", "〜かもしれない", "might", "遅れるかもしれない。", "Might be late.", "guess", "しれない → しれません; past goes on the clause: 遅れたかもしれない"],
+[4, "plain", "〜だろう", "probably (plain でしょう)", "雨だろう。", "Probably rain.", "guess"],
+[4, "plain", "〜はずだ", "should be; expected to", "来るはずだ。", "He should be coming.", "guess", "だ／です → はずです・はずだった"],
+[4, "plain", "〜そうだ (伝聞)", "I hear that", "雨が降るそうだ。", "I hear it'll rain.", "hearsay", "だ／です only - past goes on the clause: 降ったそうだ"],
+[4, "plain", "〜らしい", "seems; apparently", "今日は休みらしい。", "Seems it's closed today.", "hearsay", "い-adj → らしかった・らしくない"],
+[4, "plain", "〜ようだ", "seems (judgement)", "雨が降ったようだ。", "Looks like it rained.", "appearance", "な-adj → ようです・ようだった・ような"],
+[4, "plain", "〜みたいだ", "seems (casual ようだ)", "雨が降ったみたいだ。", "Looks like it rained.", "appearance", "な-adj → みたいです・みたいな・みたいに"],
+[4, "plain", "〜のだ／んです", "it's that… (explanation)", "疲れたんです。", "It's that I'm tired.", "explanation", "tense stays on the clause: 疲れたんです, not ×疲れるんでした"],
+[4, "plain", "〜ので", "because (softer than から)", "寒いので閉める。", "Since it's cold, I'll close it.", "reason"],
+[4, "plain", "〜のに", "even though (unexpected)", "高いのに買った。", "Bought it even though it's pricey.", "contrast"],
+[4, "plain", "〜し", "and (piling up reasons)", "安いし、近い。", "It's cheap, and it's close.", "reason"],
+[4, "plain", "〜と (条件)", "when; if (automatic result)", "春になると花が咲く。", "When spring comes, flowers bloom.", "condition"],
+[4, "plain", "〜なら", "if that's the case", "行くなら言って。", "If you're going, tell me.", "condition"],
+[4, "plain", "〜かどうか", "whether or not", "来るかどうか分からない。", "I don't know whether he'll come.", "question"],
+[4, "plain", "疑問詞＋〜か", "embedded question", "誰が来るか知らない。", "I don't know who's coming.", "question"],
+[4, "plain", "〜場合", "in case; when", "遅れる場合は連絡する。", "If I'm late I'll contact you.", "condition"],
+[4, "sf", "〜よね", "right? (confirming)", "行くよね。", "You're going, right?", "stance"],
+[4, "sf", "〜かな", "I wonder", "来るかな。", "I wonder if he'll come.", "stance"],
+[4, "sf", "〜の？", "question (casual)", "行くの？", "You going?", "question"],
+[4, "sf", "〜なあ", "exclamation", "美味しいなあ。", "So tasty!", "stance"],
+[3, "cop", "〜っぽい", "-ish; tends to", "子供っぽい", "childish", "tendency"],
+[3, "cop", "〜め", "-ish (slightly)", "早めに出る。", "Leave a bit early.", "degree"],
+[3, "cop", "〜らしい (典型)", "-like; typical of", "学生らしい服", "student-like clothes", "similarity"],
+[3, "part", "こそ", "precisely; the very", "今日こそ勉強する。", "Today, for sure, I'll study.", "emphasis"],
+[3, "part", "さえ", "even", "水さえない。", "Not even water.", "emphasis"],
+[3, "part", "ほど", "to the extent; (not) as… as", "思ったほど難しくない。", "Not as hard as I thought.", "degree"],
+[3, "part", "だけでなく／ばかりでなく", "not only… but", "味だけでなく見た目もいい。", "Not just taste, the look is good too.", "listing"],
+[3, "part", "なんか／なんて", "things like; (dismissive)", "勉強なんて嫌だ。", "Studying? No thanks.", "stance"],
+[3, "part", "くらい (程度)", "to the point of", "泣きたいくらい嬉しい。", "So happy I could cry.", "degree"],
+[3, "dict", "〜ところだ", "about to", "出かけるところだ。", "Just about to leave.", "aspect"],
+[3, "dict", "〜しかない", "no choice but", "待つしかない。", "Nothing to do but wait.", "limit"],
+[3, "dict", "〜べきだ", "should (moral)", "謝るべきだ。", "You should apologize.", "obligation"],
+[3, "dict", "〜ことはない", "no need to", "急ぐことはない。", "No need to hurry.", "advice"],
+[3, "dict", "〜たびに", "every time", "会うたびに背が伸びている。", "Every time we meet he's taller.", "frequency"],
+[3, "dict", "〜につれて", "as (one changes, so does the other)", "時間が経つにつれて慣れた。", "As time passed, I got used to it.", "correlation"],
+[3, "dict", "〜ように言う", "tell someone to", "来るように言った。", "Told him to come.", "request"],
+[3, "dict", "〜かわりに", "instead of", "行くかわりに電話する。", "Instead of going, I'll call.", "substitution"],
+[3, "dict", "〜とおりに", "as; in the way that (also た・名詞の)", "説明書のとおりに作る。", "Make it as the manual says.", "manner"],
+[3, "masu", "〜出す", "suddenly start", "泣き出した。", "Burst into tears.", "aspect"],
+[3, "masu", "〜直す", "redo", "書き直す", "rewrite", "aspect"],
+[3, "masu", "〜忘れる", "forget to", "鍵をかけ忘れた。", "Forgot to lock.", "aspect"],
+[3, "masu", "〜合う", "each other", "助け合う", "help each other", "reciprocity"],
+[3, "masu", "〜切る／切れない", "do completely／can't fully", "食べ切れない", "can't finish eating", "degree"],
+[3, "masu", "〜込む", "into; deeply", "飛び込む", "jump in", "manner"],
+[3, "masu", "お〜ください", "please do (honorific)", "お待ちください。", "Please wait.", "honorific"],
+[3, "masu", "お〜になる", "(honorific) do", "お帰りになる", "(hon.) return", "honorific"],
+[3, "masu", "お〜する", "(humble) do", "お持ちします。", "I'll carry it.", "honorific"],
+[3, "te", "〜ているところ", "in the middle of", "今食べているところだ。", "Right in the middle of eating.", "aspect"],
+[3, "te", "〜てばかりいる", "doing nothing but", "寝てばかりいる。", "Does nothing but sleep.", "limit"],
+[3, "te", "〜てほしい", "want someone to", "来てほしい。", "I want you to come.", "desire"],
+[3, "te", "〜ていただけませんか", "could you please (humble)", "教えていただけませんか。", "Could you kindly tell me?", "request"],
+[3, "te", "〜てしょうがない／しかたがない", "can't help; unbearably", "暑くてしょうがない。", "Unbearably hot.", "degree"],
+[3, "te", "〜ても〜ても", "whether or not", "行っても行かなくても同じだ。", "Same whether you go or not.", "concession"],
+[3, "te", "〜とく", "casual ておく", "買っとく。", "I'll buy it ahead.", "aspect"],
+[3, "ta", "〜たところ", "just did (this moment)", "食べたところだ。", "Just ate.", "aspect"],
+[3, "ta", "〜たら〜た (発見)", "when I did, I found", "開けたら、猫がいた。", "When I opened it, there was a cat.", "discovery"],
+[3, "ta", "〜たらどう", "how about (suggestion)", "休んだらどう？", "How about resting?", "advice"],
+[3, "ta", "〜た通り", "as (someone said)", "言った通りだ。", "Just as I said.", "manner"],
+[3, "nai", "〜ず（に）", "without doing (formal ないで)", "食べずに寝た。", "Slept without eating.", "manner"],
+[3, "nai", "〜ないこともない", "not that… can't", "できないこともない。", "It's not impossible.", "negation"],
+[3, "nai", "〜ないうちに", "before (it changes)", "冷めないうちに食べて。", "Eat before it gets cold.", "time"],
+[3, "nai", "〜なくてはならない", "must (formal)", "出さなくてはならない。", "Must submit.", "obligation"],
+[3, "erow", "〜ば〜ほど", "the more… the more", "見れば見るほど好きになる。", "The more I look, the more I like it.", "correlation"],
+[3, "erow", "〜ばよかった", "should have", "言えばよかった。", "Should've said so.", "regret"],
+[3, "erow", "〜ばいいのに", "if only you would", "早く言えばいいのに。", "If only you'd said so sooner.", "regret"],
+[3, "erow", "〜さえ〜ば", "if only", "お金さえあれば買える。", "If only I had money I could buy it.", "condition"],
+[3, "vol", "〜ようとする", "try to; be about to", "出ようとしたら電話が鳴った。", "Just as I tried to leave, the phone rang.", "attempt"],
+[3, "vol", "〜ようとしない", "refuse to", "話を聞こうとしない。", "Won't listen.", "attempt"],
+[3, "plain", "〜はずがない", "can't possibly", "来るはずがない。", "No way he's coming.", "guess"],
+[3, "plain", "〜はずだった", "was supposed to", "来るはずだった。", "Was supposed to come.", "guess"],
+[3, "plain", "〜に違いない", "must be (certain)", "犯人に違いない。", "Must be the culprit.", "guess"],
+[3, "plain", "〜に決まっている", "definitely", "勝つに決まっている。", "We'll definitely win.", "guess"],
+[3, "plain", "〜とは限らない", "not necessarily", "高いとは限らない。", "Not necessarily expensive.", "negation"],
+[3, "plain", "〜わけだ", "that's why; so it means", "だから遅れたわけだ。", "So that's why you were late.", "explanation"],
+[3, "plain", "〜わけではない", "it's not that", "嫌いなわけではない。", "Not that I dislike it.", "negation"],
+[3, "plain", "〜わけがない", "no way", "できるわけがない。", "No way that's possible.", "negation"],
+[3, "plain", "〜って", "casual quote／topic", "行くって。", "He says he's going.", "hearsay"],
+[3, "plain", "〜もの／もん", "because (personal)", "だって眠いもん。", "'Cause I'm sleepy.", "reason"],
+[3, "plain", "〜ということだ", "it means; I hear", "来ないということだ。", "It means he's not coming.", "hearsay"],
+[3, "plain", "〜というのは", "what X means is", "締切というのは期限のことだ。", "'Deadline' means the time limit.", "explanation"],
+[3, "plain", "〜おかげで", "thanks to", "先生のおかげで合格した。", "Passed thanks to my teacher.", "reason"],
+[3, "plain", "〜せいで", "because of (blame)", "雨のせいで遅れた。", "Late because of the rain.", "reason"],
+[3, "plain", "〜ため（に）(原因)", "due to", "事故のため遅れた。", "Delayed due to an accident.", "reason"],
+[3, "plain", "〜のような／ように", "like (simile)", "鳥のように飛ぶ。", "Fly like a bird.", "similarity"],
+[3, "plain", "〜みたいな／みたいに", "like (casual simile)", "猫みたいな目", "cat-like eyes", "similarity"],
+[3, "noun", "〜にとって", "for; from the viewpoint of", "私にとって大切だ。", "It's important to me.", "viewpoint"],
+[3, "noun", "〜に対して", "toward; in contrast to", "客に対して丁寧だ。", "Polite toward customers.", "target"],
+[3, "noun", "〜に比べて", "compared to", "去年に比べて暑い。", "Hotter than last year.", "comparison"],
+[3, "noun", "〜によると／によれば", "according to", "予報によると雨だ。", "According to the forecast, rain.", "basis"],
+[3, "noun", "〜とともに", "together with; as", "家族とともに暮らす。", "Live with family.", "accompaniment"],
+[3, "noun", "〜だらけ", "full of (bad)", "ゴミだらけの部屋", "a room full of trash", "degree"],
+[3, "noun", "〜通り", "as per", "予定通り", "as scheduled", "manner"],
+[3, "sf", "〜っけ", "was it…? (recalling)", "何時だっけ。", "What time was it again?", "question"],
+[3, "sf", "〜じゃない？", "isn't it? (casual)", "いいじゃない？", "Isn't that good?", "stance"],
+[2, "cop", "〜げ", "-looking (feeling shows)", "悲しげな顔", "a sad-looking face", "appearance"],
+[2, "cop", "〜がち", "prone to (bad)", "忘れがちだ。", "Prone to forgetting.", "tendency"],
+[2, "cop", "〜気味", "a touch of", "疲れ気味だ。", "A bit tired.", "tendency"],
+[2, "part", "のみ", "only (formal)", "会員のみ", "members only", "limit"],
+[2, "part", "どころか", "far from; let alone", "涼しいどころか暑い。", "Far from cool, it's hot.", "contrast"],
+[2, "part", "ばかりか", "not only… (but even)", "安いばかりか美味しい。", "Not only cheap but tasty.", "listing"],
+[2, "part", "〜だけあって", "as expected of", "プロだけあって上手だ。", "Good, as you'd expect of a pro.", "reason"],
+[2, "part", "〜だけに", "precisely because", "有名なだけに人が多い。", "Crowded precisely because it's famous.", "reason"],
+[2, "dict", "〜一方だ", "keeps on (one direction)", "物価は上がる一方だ。", "Prices keep rising.", "tendency"],
+[2, "dict", "〜ことなく", "without ever doing", "休むことなく働いた。", "Worked without rest.", "manner"],
+[2, "dict", "〜恐れがある", "there is a risk of", "崩れる恐れがある。", "There's a risk of collapse.", "guess"],
+[2, "dict", "〜ほかない", "nothing to do but", "諦めるほかない。", "Nothing for it but to give up.", "limit"],
+[2, "dict", "〜わけにはいかない", "can't (socially／morally)", "休むわけにはいかない。", "Can't take the day off.", "obligation"],
+[2, "dict", "〜以上（は）", "now that; since", "やる以上、最後までやる。", "Now that we're doing it, we finish.", "reason"],
+[2, "dict", "〜限り", "as long as (also ている)", "生きている限り学ぶ。", "As long as I live, I'll learn.", "condition"],
+[2, "dict", "〜際（に）", "when; on the occasion of (formal)", "使用する際に注意する。", "Take care when using.", "time"],
+[2, "dict", "〜にしたがって", "as; in accordance with", "進むにしたがって難しくなる。", "Gets harder as you progress.", "correlation"],
+[2, "dict", "〜上で", "in (the process of); for", "選ぶ上で大切なこと", "what matters in choosing", "basis"],
+[2, "masu", "〜かける", "half-done; about to", "食べかけのパン", "half-eaten bread", "aspect"],
+[2, "masu", "〜得る／得ない", "possible／impossible", "あり得る", "possible", "ability"],
+[2, "masu", "〜がたい", "hard to (emotionally)", "信じがたい話", "a hard-to-believe story", "ease"],
+[2, "masu", "〜かねる", "can't (politely)", "お答えしかねます。", "I'm unable to answer.", "ability"],
+[2, "masu", "〜かねない", "might well (something bad)", "事故を起こしかねない。", "Could well cause an accident.", "guess"],
+[2, "masu", "〜次第", "as soon as", "着き次第連絡する。", "I'll contact you as soon as I arrive.", "time"],
+[2, "masu", "〜つつ", "while; although", "知りつつやった。", "Did it knowing full well.", "concession"],
+[2, "masu", "〜つつある", "in the process of", "増えつつある。", "Is increasing.", "aspect"],
+[2, "masu", "〜ようがない", "no way to", "直しようがない。", "There's no way to fix it.", "ability"],
+[2, "masu", "〜っぱなし", "left as is", "つけっぱなし", "left on", "state"],
+[2, "masu", "〜抜く", "do through to the end", "やり抜く", "see it through", "aspect"],
+[2, "masu", "〜ながらも", "although", "知りながらも黙っていた。", "Kept quiet although I knew.", "concession"],
+[2, "te", "〜てからでないと", "not until after", "払ってからでないと入れない。", "Can't enter until you've paid.", "condition"],
+[2, "te", "〜てはじめて", "only after", "失ってはじめて分かる。", "You only understand once you've lost it.", "time"],
+[2, "te", "〜てたまらない", "unbearably", "眠くてたまらない。", "Unbearably sleepy.", "degree"],
+[2, "te", "〜てならない", "can't help feeling", "気になってならない。", "Can't stop worrying.", "degree"],
+[2, "te", "〜ていられない", "can't afford to keep", "待っていられない。", "Can't keep waiting.", "ability"],
+[2, "te", "〜てこそ", "only by", "努力してこそ成功する。", "Only through effort do you succeed.", "condition"],
+[2, "te", "〜て以来", "ever since", "来て以来会っていない。", "Haven't met since I came.", "time"],
+[2, "ta", "〜た上で", "after (deliberately) doing", "相談した上で決める。", "Decide after consulting.", "sequence"],
+[2, "ta", "〜た末（に）", "after much…", "悩んだ末に決めた。", "Decided after much worry.", "sequence"],
+[2, "ta", "〜たとたん", "the instant", "開けたとたん、猫が出た。", "The instant I opened it, the cat shot out.", "time"],
+[2, "ta", "〜たきり", "since (and nothing after)", "出かけたきり戻らない。", "Went out and hasn't come back.", "state"],
+[2, "ta", "〜た以上", "now that (done)", "決めた以上、やる。", "Now that it's decided, we do it.", "reason"],
+[2, "nai", "〜ざるを得ない", "have no choice but", "行かざるを得ない。", "Have no choice but to go.", "obligation"],
+[2, "nai", "〜ないではいられない", "can't help but", "笑わないではいられない。", "Can't help laughing.", "desire"],
+[2, "nai", "〜ないことには", "unless", "見ないことには分からない。", "Won't know unless I see it.", "condition"],
+[2, "nai", "〜ねばならない", "must (formal)", "行かねばならない。", "Must go.", "obligation"],
+[2, "nai", "〜ぬ", "not (classical)", "知らぬ顔", "a face that doesn't know", "negation"],
+[2, "nai", "〜ないで済む", "get by without", "行かないで済んだ。", "Got away without going.", "result"],
+[2, "vol", "〜うではないか", "let's (rhetorical)", "やろうではないか。", "Let us do it, shall we.", "invitation"],
+[2, "plain", "〜ものだ", "it's natural that; used to", "人は忘れるものだ。", "People forget, that's how it is.", "stance"],
+[2, "plain", "〜ものの", "although", "買ったものの使っていない。", "Bought it, but haven't used it.", "contrast"],
+[2, "plain", "〜ものか", "as if I'd (rhetorical)", "行くものか。", "As if I'd go.", "negation"],
+[2, "plain", "〜くせに", "despite (critical)", "知っているくせに黙っていた。", "Kept quiet even though you knew.", "contrast"],
+[2, "plain", "〜にもかかわらず", "despite", "雨にもかかわらず来た。", "Came despite the rain.", "contrast"],
+[2, "plain", "〜かのように", "as if", "見たかのように話す。", "Talks as if he'd seen it.", "similarity"],
+[2, "plain", "〜からこそ", "precisely because", "好きだからこそ言う。", "I say it precisely because I care.", "reason"],
+[2, "plain", "〜からには", "now that; since", "やるからには勝つ。", "Since we're doing it, we win.", "reason"],
+[2, "plain", "〜からといって", "just because", "高いからといっていいとは限らない。", "Just because it's pricey doesn't mean it's good.", "contrast"],
+[2, "plain", "〜としても", "even if", "本当だとしても信じない。", "Even if true, I won't believe it.", "concession"],
+[2, "plain", "〜にしても", "even if; even in the case of", "行くにしても遅くなる。", "Even if I go, I'll be late.", "concession"],
+[2, "plain", "〜としたら／とすれば", "supposing", "行くとしたら来週だ。", "If I were to go, it'd be next week.", "condition"],
+[2, "plain", "〜というより", "rather than", "好きというより尊敬している。", "More respect than like.", "comparison"],
+[2, "plain", "〜一方（で）", "on the other hand", "便利な一方で高い。", "Convenient, but on the other hand pricey.", "contrast"],
+[2, "plain", "〜反面", "on the flip side", "楽しい反面、疲れる。", "Fun, but tiring on the flip side.", "contrast"],
+[2, "plain", "〜ことか", "how…! (exclamation)", "どんなに嬉しいことか。", "How happy I am!", "emphasis"],
+[2, "plain", "〜ことだ", "should (advice)", "早く寝ることだ。", "You should sleep early.", "advice"],
+[2, "plain", "〜ことから", "from the fact that", "形が似ていることから名づけた。", "Named for the resemblance.", "reason"],
+[2, "plain", "〜ことに", "-ly (to my…)", "驚いたことに、彼が来た。", "Surprisingly, he came.", "stance"],
+[2, "plain", "〜とのことだ", "I'm told (formal)", "休むとのことだ。", "I'm told he's taking the day off.", "hearsay"],
+[2, "noun", "〜のあまり", "so much that", "嬉しさのあまり泣いた。", "Cried from sheer joy.", "degree"],
+[2, "noun", "〜向け", "intended for", "子供向けの本", "a book for children", "target"],
+[2, "noun", "〜向き", "suited to", "初心者向きだ。", "Suited to beginners.", "target"],
+[2, "noun", "〜上（じょう）", "from the standpoint of", "法律上問題ない。", "No problem legally.", "viewpoint"],
+[2, "noun", "〜を中心に", "centered on", "東京を中心に活動する。", "Active mainly in Tokyo.", "basis"],
+[2, "noun", "〜を通じて／を通して", "through; via", "友人を通じて知った。", "Learned through a friend.", "means"],
+[2, "noun", "〜をめぐって", "over; concerning (dispute)", "土地をめぐって争う。", "Fight over the land.", "topic"],
+[2, "noun", "〜をはじめ", "starting with", "社長をはじめ全員が来た。", "Everyone came, starting with the CEO.", "listing"],
+[2, "noun", "〜をもとに", "based on", "事実をもとに書いた。", "Written based on facts.", "basis"],
+[2, "noun", "〜を問わず", "regardless of", "年齢を問わず参加できる。", "Anyone can join regardless of age.", "limit"],
+[2, "noun", "〜をきっかけに", "with … as the trigger", "留学をきっかけに変わった。", "Changed after studying abroad.", "reason"],
+[2, "noun", "〜に基づいて", "based on", "法律に基づいて判断する。", "Judge based on the law.", "basis"],
+[2, "noun", "〜に伴って", "along with; as", "成長に伴って費用が増える。", "Costs rise with growth.", "correlation"],
+[2, "noun", "〜に応じて", "according to", "状況に応じて変える。", "Change according to the situation.", "basis"],
+[2, "noun", "〜に関して", "regarding", "計画に関して質問がある。", "I have a question regarding the plan.", "topic"],
+[2, "noun", "〜において", "in; at (formal)", "会議において決まった。", "Decided at the meeting.", "place"],
+[2, "noun", "〜にわたって", "over (a span)", "三年にわたって研究した。", "Researched over three years.", "time"],
+[2, "noun", "〜にかけて", "through (a range)", "夜から朝にかけて雨", "rain from night through morning", "time"],
+[2, "noun", "〜に沿って", "along; in line with", "川に沿って歩く。", "Walk along the river.", "manner"],
+[2, "noun", "〜にしては", "for (contrary to expectation)", "子供にしては上手だ。", "Good, for a child.", "contrast"],
+[2, "noun", "〜に限って", "only; of all…", "今日に限って雨だ。", "Rain, today of all days.", "limit"],
+[2, "noun", "〜に限らず", "not limited to", "日本に限らず世界中で", "not just Japan but worldwide", "limit"],
+[2, "noun", "〜にすぎない", "nothing more than", "冗談にすぎない。", "It's just a joke.", "limit"],
+[2, "noun", "〜にほかならない", "nothing other than", "努力の結果にほかならない。", "Nothing but the result of effort.", "emphasis"],
+[2, "noun", "〜に加えて", "in addition to", "雨に加えて風も強い。", "Wind too, on top of rain.", "listing"],
+[2, "noun", "〜ぶり", "first time in", "三年ぶりに会った。", "Met for the first time in three years.", "time"],
+[2, "noun", "〜次第だ", "depends on", "天気次第だ。", "Depends on the weather.", "basis"],
+[2, "noun", "〜以来", "ever since", "卒業以来会っていない。", "Haven't met since graduation.", "time"]
+];
+const S='<span class="slot"></span>';
+const G=[
+{k:"cop",s:"だ・い",a:`学生・静か ＋ ${S} ／ 高 ＋ ${S}`,t:"Copula & adjective endings",n:"Nouns and な-adjectives share one set of endings (だ・です・じゃない・だった). い-adjectives conjugate on their own stem - and ない is an い-adjective, which is why every negative in Japanese past-tenses to なかった."},
+{k:"part",s:"助詞",a:`名詞 ＋ ${S}`,t:"Case particles",n:"Particles mark what a noun is doing in the sentence. Question words always take が, never は. Sentence-final particles (ね・よ) have their own section at the bottom."},
+{k:"dict",s:"辞書形",a:`食べる・書く ＋ ${S}`,t:"Dictionary form (辞書形)",n:"The unchanged verb. Tails here attach with nothing in between - no stem shift, no て. Many of these also take た or 名詞の in the same slot; those are marked."},
+{k:"masu",s:"ます",a:`食べ・書き ＋ ${S}`,t:"ます-stem (連用形)",how:"食べる→食べ · 書く→書き · 遊ぶ→遊び · する→し · 来る→来 (き)",n:"Chop ます off the polite form and you have the busiest stem in the language: たい, ながら, やすい, すぎる and most compound verbs live here. Adjective stems (高・静か) take a few of these too - marked (adj)."},
+{k:"te",s:"て",a:`食べて・書いて ＋ ${S}`,t:"て-form",how:"食べる→食べて · 書く→書いて · 飲む→飲んで · する→して · 来る→来て - <a href=\"#f-sound\">sound changes ↑</a>",n:"て is a connector. Everything below is て plus a helper verb or phrase - ている, ておく, てみる, てしまう are one form with four tails, not four forms."},
+{k:"ta",s:"た",a:`食べた・書いた ＋ ${S}`,t:"た-form",how:"食べる→食べた · 書く→書いた · 飲む→飲んだ · する→した · 来る→来た - <a href=\"#f-sound\">same changes as て ↑</a>",n:"Learning the て sound changes buys you た for free. たら is just た＋ら - the conditional that lives on the past tense."},
+{k:"nai",s:"ない",a:`食べ・書か ＋ ${S}`,t:"ない-stem (a-row, 未然形)",how:"食べる→食べ · 書く→書か · 買う→買わ · する→し · 来る→来 (こ)",n:"Godan shifts to the a-row; ichidan just drops る. Passive れる／られる and causative せる／させる attach here too - stem-mates of ない, not separate systems. Verbs ending in う take わ, not あ."},
+{k:"erow",s:"え段",a:`食べれ・書け ＋ ${S}`,t:"e-row (仮定形・可能・命令)",how:"食べる→食べれ · 書く→書け · 買う→買え · する→すれば／できる／しろ · 来る→来れば／来られる／来い",n:"One stem, three jobs: ば conditional (書けば), potential (書ける), imperative (書け). Ichidan uses れば／られる／ろ for the same three."},
+{k:"vol",s:"よう",a:`食べよう・書こう ＋ ${S}`,t:"Volitional (o-row)",how:"食べる→食べよう · 書く→書こう · 買う→買おう · する→しよう · 来る→来よう (こよう)",n:"Godan shifts to the o-row plus う; ichidan takes よう. Tails attach to the finished volitional."},
+{k:"plain",s:"普通形",a:`普通形 ＋ ${S}`,t:"Plain clause (普通形)",n:"These take a whole plain-form predicate: verb (食べる・食べた), い-adj (高い), な-adj (静かだ), noun (学生だ). Before ので・のに・わけ, な-adj and nouns keep な (静かなので・学生なのに); before はず・よう・ため, nouns take の (学生のはず). Tails like と思う・かもしれない・はず・そうだ take plain only; connectors like から・けど・し accept polite too."},
+{k:"noun",s:"名詞",a:`名詞 ＋ ${S}`,t:"Noun-attaching expressions",n:"Demonstratives, counters, and - from N3 up - the compound particles (にとって・をめぐって・に基づいて). At N2 this bucket gets big because the grammar shifts from conjugation to set phrases."},
+{k:"sf",s:"文末",a:`文 ＋ ${S}`,t:"Sentence-final particles",n:"Attach to a finished sentence, plain or polite. They carry stance - asking, asserting, recalling - not grammar."}
+];
+const GR={
+godan:{w:"書く",g:"kaku - to write",f:["書く","書かない","書いた","書かなかった","書きます","書きません","書きました","書きませんでした"],r:["kaku","kakanai","kaita","kakanakatta","kakimasu","kakimasen","kakimashita","kakimasen deshita"],n:"Polite forms attach to the ます-stem. Negative uses the a-row; う-final verbs take わ, not あ."},
+ichidan:{w:"食べる",g:"taberu - to eat",f:["食べる","食べない","食べた","食べなかった","食べます","食べません","食べました","食べませんでした"],r:["taberu","tabenai","tabeta","tabenakatta","tabemasu","tabemasen","tabemashita","tabemasen deshita"],n:"Drop る and attach. No sound changes ever. Identical endings to godan once you have the stem."},
+iadj:{w:"寒い",g:"samui - cold",f:["寒い","寒くない","寒かった","寒くなかった","寒いです","寒くないです","寒かったです","寒くなかったです"],r:["samui","samukunai","samukatta","samukunakatta","samui desu","samukunai desu","samukatta desu","samukunakatta desu"],n:"い→く, then conjugate like ない. です is a politeness tag on the end - the tense never moves onto it. 寒かった, never ×寒いでした."},
+naadj:{w:"静か",g:"shizuka - quiet",f:["静かだ","静かじゃない","静かだった","静かじゃなかった","静かです","静かじゃありません","静かでした","静かじゃありませんでした"],r:["shizuka da","shizuka ja nai","shizuka datta","shizuka ja nakatta","shizuka desu","shizuka ja arimasen","shizuka deshita","shizuka ja arimasen deshita"],n:"Identical to nouns. This is where でした legitimately lives - and the only place."},
+noun:{w:"学生",g:"gakusei - student",f:["学生だ","学生じゃない","学生だった","学生じゃなかった","学生です","学生じゃありません","学生でした","学生じゃありませんでした"],r:["gakusei da","gakusei ja nai","gakusei datta","gakusei ja nakatta","gakusei desu","gakusei ja arimasen","gakusei deshita","gakusei ja arimasen deshita"],n:"Same pattern as な-adjectives, exactly. Learn one and you have both."}};
+function paintGrid(k){const d=GR[k];document.getElementById('w').textContent=d.w;document.getElementById('g').textContent=d.g;for(let i=0;i<8;i++){document.getElementById('f'+i).textContent=d.f[i];document.getElementById('r'+i).textContent=d.r[i]}document.getElementById('gridnote').textContent=d.n}
+const tabs=document.querySelectorAll('#tabs .tab');
+tabs.forEach(b=>b.addEventListener('click',()=>{tabs.forEach(x=>x.setAttribute('aria-selected','false'));b.setAttribute('aria-selected','true');paintGrid(b.dataset.k)}));
+paintGrid('godan');
+const LC={5:"var(--n5)",4:"var(--n4)",3:"var(--n3)",2:"var(--n2)"};
+const on={5:true,4:true,3:false,2:false};
+const main=document.getElementById('main'),nav=document.getElementById('nav'),q=document.getElementById('q'),fn=document.getElementById('fn'),none=document.getElementById('none');
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const tg=[...new Set(D.map(r=>r[6]))].sort();
+tg.forEach(t=>{const o=document.createElement('option');o.value=t;o.textContent=t;fn.appendChild(o)});
+const counts={5:0,4:0,3:0,2:0};D.forEach(r=>counts[r[0]]++);
+for(const l in counts)document.getElementById('c'+l).textContent=counts[l];
+document.getElementById('total').textContent=D.length+' points';
+G.forEach(g=>{
+ const rows=D.filter(r=>r[1]===g.k);
+ const s=document.createElement('section');s.id='g-'+g.k;
+ s.innerHTML=`<p class="anchor">${g.a}</p><p class="gt">${g.t}<span class="cnt" data-cnt></span></p>`+(g.how?`<p class="how">${g.how}</p>`:'')+`<p class="gn">${g.n}</p>`+
+  rows.map(r=>`<div class="row" data-l="${r[0]}" data-t="${r[6]}" data-s="${esc((r[2]+' '+r[3]+' '+r[4]+' '+r[5]+' '+(r[7]||'')).toLowerCase())}" style="--c:${LC[r[0]]}"><span class="pip" title="N${r[0]}"></span><span class="p">${esc(r[2])}<span class="tg">${r[6]}</span></span><span class="m">${esc(r[3])}</span><span class="ex"><span class="e">${esc(r[4])}</span><span class="x">${esc(r[5])}</span></span>${r[7]?`<span class="c">${esc(r[7])}</span>`:''}</div>`).join('');
+ main.appendChild(s);
+ const a=document.createElement('a');a.href='#g-'+g.k;a.innerHTML=`${g.s}<small></small>`;nav.appendChild(a);
+});
+function apply(){
+ const qq=q.value.trim().toLowerCase(),t=fn.value;let total=0;
+ document.querySelectorAll('main section').forEach(s=>{
+  let n=0;
+  s.querySelectorAll('.row').forEach(r=>{
+   const ok=on[r.dataset.l]&&(!t||r.dataset.t===t)&&(!qq||r.dataset.s.includes(qq));
+   r.classList.toggle('hide',!ok);if(ok)n++;
+  });
+  total+=n;
+  s.classList.toggle('hide',n===0);
+  s.querySelector('[data-cnt]').textContent=n;
+  const a=nav.querySelector(`a[href="#${s.id}"]`);a.classList.toggle('hide',n===0);a.querySelector('small').textContent=n;
+ });
+ none.classList.toggle('hide',total>0);
+}
+document.querySelectorAll('.lv').forEach(b=>b.addEventListener('click',()=>{on[b.dataset.l]=!on[b.dataset.l];b.classList.toggle('off',!on[b.dataset.l]);apply();}));
+q.addEventListener('input',apply);fn.addEventListener('change',apply);apply();
+const seg=document.querySelectorAll('.seg button');
+function setView(v,push){document.body.classList.remove('conj','map');document.body.classList.add(v);seg.forEach(b=>b.setAttribute('aria-selected',b.dataset.v===v?'true':'false'));if(push){try{history.replaceState(null,'','#'+v)}catch(e){}}}
+seg.forEach(b=>b.addEventListener('click',()=>{setView(b.dataset.v,true);window.scrollTo(0,0)}));
+document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(!el)return;setView(el.closest('#v-map')?'map':'conj',false)});
+setView(location.hash==='#map'?'map':'conj',false);
+</script>
+</body>
+</html>
