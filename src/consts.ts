@@ -1,62 +1,63 @@
-/**
- * Everything personal about the site lives here.
- * Edit this file to change copy — you shouldn't need to touch the components.
- */
-
 export const SITE = {
   name: 'Ernest Au',
   domain: 'ernestau.com',
   url: 'https://ernestau.com',
-  /** Shown in the browser tab and as the OG site name. */
   title: 'Ernest Au',
-  /** One sentence. This is the single most important string on the site. */
   description:
-    "my learning journal. i'm ernest, a data engineer — i break down the concepts i struggled with (aws, databricks, spark) until they're actually easy to understand.",
+    "my learning journal",
 } as const;
 
-/** The headline at the top of the homepage. */
 export const GREETING = 'hi, welcome! 👋';
 
-/** The homepage intro paragraph. Plain language, no job titles. */
-export const INTRO = `this site is my learning journal. i often struggle with complicated
-concepts, and i think many people quietly struggle too. so my goal is to break
-them down and make them easy to understand.`;
+export const INTRO = `if you're new here, here's what to expect!`;
 
-/**
- * The about section. Each item renders as its own paragraph.
- * Items are HTML, so <a href="...">links</a> and <br /> line breaks both work.
- */
-export const ABOUT: string[] = [
-  "i work as a data engineer at EY. we get a lot of projects to build ai tools. so, i build the pipelines that turn a company's data into something that ai can process.",
-  "i think over my career, i find myself leaning towards engineering work. as in, i really like building systems that work, and so it's this personality trait of mine that makes me make tiny little subconscious micro-decisions that shape my journey.",
-  "fun fact: one thing i'd argue with another engineer about is that - we should sleep on it. like literally. let's say we need to make a design decision (it will impact our project for the months to come). first, brainstorm some design options. second, go home and get some rest. then tomorrow, with fresh eyes, make the decision. it would save us a lot of trouble.",
+export const EXPECT: { heading: string; paras: string[] }[] = [
+  {
+    heading: '❌ no AI slop',
+    paras: [
+      'everything here is written in my words and my words only.',
+      'i mean, i do use AI for fact checking, drawing helpful diagrams, and the occasional spell check.',
+      'and i did use it to build this whole website 🤨',
+      'the point is that YOU as the reader and ME as the writer work with real human words.',
+      `expect to come across a bunch of 'i thinks', 'it seems likes', and 'i dont really knows'.`,
+      'expect be unwillingly led to weird tangents that have nothing to do with the title of the article.',
+      'oh, and expect to not find em dashes. that there is a promise.',
+    ],
+  },
+  {
+    heading: '✅ my learning journey',
+    paras: [
+      'here, i write and document what i learn in the form of articles!',
+      `when i write, it REALLY exposes all my knowledge gaps. i'm forced to consolidate the gaps so i can actually finish the article haha.`,
+      'on top of that, i find that writing scratches a creative itch in my brain. i think as humans, it just feels good to be creative yk?',
+      `actually, right now as i'm writing this, i'm thinking that i might use this to write about other stuff other than just learning, like personal thoughts or philosophy.`,
+      'i guess that leads me to my next point.',
+    ],
+  },
+  {
+    heading: '✅ change and growth',
+    paras: [
+      `it's 22 sep 2026 as i'm writing this.`,
+      `currently, i'm interested in data engineering, fitness, creative works, and a lil bit of philosophy.`,
+      `but i'm a living breathing human. i change dude.`,
+      '5 years from now, i might look back at this with pride, or i might look back at it and cringe.',
+      'somewhere along the way, i might decide that NONE of these rules apply.',
+      `maybe i'll turn around and say`,
+      `<em>all hail our AI overlords. they know what's best for us. let us bask in the never ending springs of content they graciously generate for our consumption.</em>`,
+    ],
+  },
 ];
 
-/** The `//` section headings, in the order they appear down the page. */
 export const LABELS = {
-  about: 'about me',
-  working: "what i'm working on",
   elsewhere: 'elsewhere',
 } as const;
 
-/**
- * Short list of what you're working on right now. Cheap to update — that's the point.
- * Items are rendered as HTML, so you can put <a href="...">links</a> inside a sentence.
- */
-export const CURRENTLY: string[] = [
-  'creating content. for me, this acts as a creative outlet in a sometimes not so creative field.',
-  'strengthening concepts. modern tools make it easy to build stuff. but i think that makes understanding fundamentals all the more important. at least for now ¯\\_(ツ)_/¯',
-  `<a href="https://github.com/ErnestAu/food-delivery-pipeline">my food delivery pipeline</a>. it's 90% done. but there are some final touches i want. i wanna use dbt to perform CI checks, and terraform so that anyone can rebuild the infrastructure easily.`,
-];
-
-/** Links in the header. Add entries here as sections ship. */
 export const NAV: { label: string; href: string }[] = [
   { label: 'til', href: '/til' },
   // { label: 'Videos',   href: '/videos'   },
   // { label: 'Projects', href: '/projects' },
 ];
 
-/** External profiles. Remove any you don't want public. */
 export const ELSEWHERE: { label: string; href: string }[] = [
   { label: 'GitHub', href: 'https://github.com/ErnestAu' },
   { label: 'YouTube', href: 'https://www.youtube.com/@ernestau2465' },

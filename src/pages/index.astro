@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { GREETING, INTRO, ABOUT, LABELS, CURRENTLY, ELSEWHERE } from '../consts';
+import { GREETING, INTRO, EXPECT, LABELS, ELSEWHERE } from '../consts';
 ---
 
 <Base>
@@ -10,19 +10,14 @@ import { GREETING, INTRO, ABOUT, LABELS, CURRENTLY, ELSEWHERE } from '../consts'
       <p class="intro">{INTRO}</p>
     </section>
 
-    <section class="block">
-      <h2 class="label">{LABELS.about}</h2>
-      <div class="prose about">
-        {ABOUT.map((para) => <p set:html={para} />)}
-      </div>
-    </section>
-
-    <section class="block">
-      <h2 class="label">{LABELS.working}</h2>
-      <ul class="currently">
-        {CURRENTLY.map((item) => <li set:html={item} />)}
-      </ul>
-    </section>
+    {EXPECT.map((section) => (
+      <section class="block">
+        <h2 class="expect">{section.heading}</h2>
+        <div class="prose about">
+          {section.paras.map((para) => <p set:html={para} />)}
+        </div>
+      </section>
+    ))}
 
     <section class="block">
       <h2 class="label">{LABELS.elsewhere}</h2>
@@ -49,6 +44,15 @@ import { GREETING, INTRO, ABOUT, LABELS, CURRENTLY, ELSEWHERE } from '../consts'
   .block { margin-block-start: 4rem; }
 
   .block > .label { margin-block-end: 1.5rem; }
+
+  /* These three headings are the homepage body, not section furniture, so
+     they get real weight rather than the mono `//` label. The emoji leads and
+     carries the yes/no, so no rule or prefix is needed. */
+  .expect {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-block-end: 1.25rem;
+    max-width: var(--measure);
+  }
 
   .about { color: var(--text-muted); }
 
