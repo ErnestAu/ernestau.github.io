@@ -58,7 +58,7 @@ ok! let's check with AI to see how accurate this description was.
 
 > this group of people from UC Berkeley were like hey why don't we *distribute* the data to multiple machines
 
-Berkeley didn't come up with distributing data across machines. Google published the MapReduce paper in 2004, and Hadoop was built from it in 2006. Berkeley's AMPLab built Spark in 2009 to fix a specific problem with Hadoop — it wrote results to disk after every step, which is slow when you're doing many steps in a row. Spark keeps them in memory. That's where the "100x faster" claims come from.
+Berkeley didn't come up with distributing data across machines. Google published the MapReduce paper in 2004, and Hadoop was built from it in 2006. Berkeley's AMPLab built Spark in 2009 to fix a specific problem with Hadoop - it wrote results to disk after every step, which is slow when you're doing many steps in a row. Spark keeps them in memory. That's where the "100x faster" claims come from.
 
 ---
 
@@ -68,7 +68,7 @@ Berkeley didn't come up with distributing data across machines. Google published
 
 Compilation means turning source code into machine code. The word you want is aggregating.
 
-And results usually don't come back to the driver at all — they get written straight to storage. Pulling everything back to the driver is one of the most common ways to run a Spark job out of memory.
+And results usually don't come back to the driver at all - they get written straight to storage. Pulling everything back to the driver is one of the most common ways to run a Spark job out of memory.
 
 ---
 
@@ -84,7 +84,7 @@ One driver per application, many workers. Also: a worker is the machine, an exec
 
 > nodes and edges are a type of system
 
-Nodes and edges *are* a graph — that's the word. Which pays off later: Spark plans your job as a DAG, a directed acyclic graph.
+Nodes and edges *are* a graph - that's the word. Which pays off later: Spark plans your job as a DAG, a directed acyclic graph.
 
 ---
 
@@ -92,7 +92,7 @@ Nodes and edges *are* a graph — that's the word. Which pays off later: Spark p
 
 > open source means that it's free and you can look at all the code in GitHub
 
-Open source is about the license, not the price. Public code isn't enough on its own — the license has to let you use it, change it, and pass it on. Free usually follows, but it's a side effect, not the definition.
+Open source is about the license, not the price. Public code isn't enough on its own - the license has to let you use it, change it, and pass it on. Free usually follows, but it's a side effect, not the definition.
 
 ## thoughts
 ok. yea couple of mistakes. spark didn't introduce distributed processing. its innovation is shifting from disk to memory. 

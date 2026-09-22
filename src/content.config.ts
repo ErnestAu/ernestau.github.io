@@ -6,7 +6,7 @@ import { glob } from 'astro/loaders';
  * The filename becomes the URL: spark-partitions.md -> /til/spark-partitions
  *
  * The schema below is enforced at build time. If a field is missing or the
- * wrong type, the build fails and tells you which file and which field —
+ * wrong type, the build fails and tells you which file and which field -
  * so a broken entry can never reach the live site.
  */
 const til = defineCollection({
@@ -21,7 +21,7 @@ const til = defineCollection({
     /** Written as YYYY-MM-DD. Sorts the list, newest first. */
     date: z.coerce.date(),
     /** Which bucket this belongs in: japanese, data-engineering, workouts,
-     *  life, philosophy, whatever you invent next. Nothing renders it yet —
+     *  life, philosophy, whatever you invent next. Nothing renders it yet -
      *  it's here so that when you build category pages, the entries already
      *  carry the data and nothing needs backfilling. */
     category: z.string().optional(),

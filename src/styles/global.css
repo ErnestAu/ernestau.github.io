@@ -5,7 +5,7 @@
    ============================================================ */
 
 :root {
-  /* Warm off-white ground — softer than pure white under long reading. */
+  /* Warm off-white ground - softer than pure white under long reading. */
   --bg:           #fbfaf8;
   --bg-subtle:    #f3f1ea;
   --text:         #1a1d24;
@@ -144,7 +144,7 @@ main { flex: 1 0 auto; }
 .prose > * + * { margin-block-start: 1.25em; }
 .prose { max-width: var(--measure); }
 
-/* The `//` section label — a code comment used as editorial furniture. */
+/* The `//` section label - a code comment used as editorial furniture. */
 .label {
   font-family: var(--font-mono), ui-monospace, monospace;
   font-size: 0.75rem;
@@ -180,7 +180,7 @@ main { flex: 1 0 auto; }
 .skip-link:focus { left: 0; }
 
 /* ============================================================
-   Markdown body — til entries
+   Markdown body - til entries
    Everything below styles HTML generated from your markdown,
    so it has to be global: scoped styles can't reach it.
    ============================================================ */
@@ -220,7 +220,7 @@ main { flex: 1 0 auto; }
 
 .prose .correction > :last-child { margin-block-end: 0; }
 
-/* A term pinned down mid-article. No fill and no box — just a warm rule and
+/* A term pinned down mid-article. No fill and no box - just a warm rule and
    the term in ochre, so it stays quieter than a correction and never reads
    as one. */
 .prose .definition {
