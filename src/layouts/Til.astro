@@ -25,6 +25,7 @@ const dateLabel = date
     <header class="head">
       <p class="label">til</p>
       <h1>{title}</h1>
+      {description && <p class="standfirst">{description}</p>}
       <p class="meta">
         <time datetime={date.toISOString()}>{dateLabel}</time>
         {draft && <span class="draft">draft</span>}
@@ -111,6 +112,18 @@ const dateLabel = date
   }
 
   .head .label { margin-block-end: 1.25rem; }
+
+  /* Reads as part of the title block, not as body copy: the body serif at a
+     size between h1 and prose, muted, sitting tight under the title. The date
+     below it then closes the header off. */
+  .standfirst {
+    margin-block-start: 0.875rem;
+    font-family: var(--font-body), Georgia, serif;
+    font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
+    line-height: 1.5;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
 
   .meta {
     font-family: var(--font-mono), ui-monospace, monospace;
